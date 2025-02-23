@@ -15,25 +15,24 @@
         <button>Completed</button> -->
     </nav>
 
-    <div id="content">
-<!-- 
-        <dialog class="add-new-task">
-            <input type="text" class="task-name" placeholder="Title">
-            <textarea class="task-description" placeholder="Description"></textarea>
-            <input type="date" class="task-due-date" placeholder="Due Date">
-            <div class="priority">
-                <input type="radio" id="priority" name="priority">
-                <label for="priority">Priority</label>
-            </div>
-            <input type="text" class="time" placeholder="time">
-            <div class="repeat">
-                <input type="radio" id="repeat" name="repeat">
-                <label for="repeat">Repeat</label>
-            </div>
-            <input type="text" class="task-project" placeholder="My Project">
-        </dialog> -->
+    <dialog class="add-new-task">
+        <input type="text" class="task-title" placeholder="Title">
+        <textarea class="task-description" placeholder="Description"></textarea>
+        <input type="date" class="task-due-date" placeholder="Due Date">
+        <input type="time" class="task-time" placeholder="time">
+        <div class="priority">
+            <input type="checkbox" id="priority" name="priority">
+            <label for="priority">Priority</label>
+        </div>
+        <div class="repeat">
+            <input type="checkbox" id="repeat" name="repeat">
+            <label for="repeat">Repeat</label>
+        </div>
+        <button class="submit-task">Submit</button>
+        <button class="close-dialog">Cancel</button>
+    </dialog>
 
-    </div>
+    <div id="content"></div>
 
 </body>
 </html>
