@@ -13,12 +13,12 @@ const dialog = document.querySelector('dialog');
 
 class Task {
 
-    constructor(title, description, dueDate, priority, time, repeat){
+    constructor(title, description, dueDate, time, priority, repeat){
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
-        this.priority = priority;
         this.time = time;
+        this.priority = priority;
         this.repeat = repeat;
     }
 

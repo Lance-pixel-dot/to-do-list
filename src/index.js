@@ -1,10 +1,8 @@
 import "./styles.css";
 import { addTaskButton } from "./create-task";
-import { format, formatDistance, formatRelative, subDays } from 'date-fns';
 
-const contentDiv = document.querySelector('#content');
-const dateToday = document.createElement('p');
-dateToday.textContent = formatRelative(subDays(new Date(), 10), new Date());
-// format(new Date(), "'Today is a' eeee");
-
-contentDiv.appendChild(dateToday);
+//list of tasks:
+//use date-fns methods/functions to make conditions on date and time if the task is due or overdue.
+//make sure multiple task can appear in the DOM
+//use storage API
+//Start designing
