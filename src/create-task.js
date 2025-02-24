@@ -1,4 +1,5 @@
 import { displayTask } from "./display-task";
+import { setLocalStorage } from "./local-storage";
 
 const addTaskButton = document.querySelector('.add-task');
 const cancelButton = document.querySelector('.close-dialog');
@@ -46,7 +47,8 @@ submitTaskButton.addEventListener('click', () => {
 
     taskArr.push(newTask);
 
-    displayTask();
+    displayTask(taskArr);
+    setLocalStorage();
 
     taskTitleInput.value = "";
     taskDescriptionInput.value = "";
