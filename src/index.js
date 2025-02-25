@@ -1,18 +1,24 @@
 import "./styles.css";
 import { addTaskButton } from "./create-task";
-import { setLocalStorage } from "./local-storage";
+import { displayLocalStorage } from "./web-storage";
 import { displayTask } from "./display-task";
-import { taskArr } from "./create-task";
 
-// if(taskArr.length == 0){
-//     taskArr.push(setLocalStorage);
-// }
+class Task {
 
-// function onPageLoad(arrayData){
+    constructor(title, description, dueDate, time, priority, repeat){
+        this.title = title;
+        this.description = description;
+        this.dueDate = dueDate;
+        this.time = time;
+        this.priority = priority;
+        this.repeat = repeat;
+    }
 
-    
+}
 
-// }
+displayLocalStorage();
+
+export { Task };
 
 //list of tasks:
 //use date-fns methods/functions to make conditions on date and time if the task is due or overdue. (can be improved)
@@ -20,5 +26,6 @@ import { taskArr } from "./create-task";
 //use local storage API.
 //Start designing.
 //time format should be on a different module. (can be improved)
-//make local storage array data appear in dom when the app loads.
-//make local storage array data be place in taskArr when page loads. (If possible)
+//make notification on tasks on due on the DOM.
+//delete tasks.
+//edit tasks.

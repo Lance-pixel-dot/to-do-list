@@ -1,5 +1,5 @@
-import { displayTask } from "./display-task";
-import { setLocalStorage } from "./local-storage";
+import { Task } from ".";
+import { setLocalStorage, getLocalStorage } from "./web-storage";
 
 const addTaskButton = document.querySelector('.add-task');
 const cancelButton = document.querySelector('.close-dialog');
@@ -11,21 +11,6 @@ const taskTimeInput = document.querySelector('.task-time');
 const taskPriorityInput = document.querySelector('#priority');
 const taskRepeatInput = document.querySelector('#repeat');
 const dialog = document.querySelector('dialog');
-
-class Task {
-
-    constructor(title, description, dueDate, time, priority, repeat){
-        this.title = title;
-        this.description = description;
-        this.dueDate = dueDate;
-        this.time = time;
-        this.priority = priority;
-        this.repeat = repeat;
-    }
-
-}
-
-const taskArr = [];
 
 addTaskButton.addEventListener('click', () => {
     dialog.showModal();
@@ -45,10 +30,7 @@ submitTaskButton.addEventListener('click', () => {
 
     const newTask = new Task(taskTitle, taskDescription, taskDueDate, taskTime, taskPriority, taskRepeat);
 
-    taskArr.push(newTask);
-
-    displayTask(taskArr);
-    setLocalStorage();
+    setLocalStorage(newTask);
 
     taskTitleInput.value = "";
     taskDescriptionInput.value = "";
@@ -58,4 +40,4 @@ submitTaskButton.addEventListener('click', () => {
     taskRepeatInput.value = "";
 });
 
-export { taskArr, addTaskButton };
+export { addTaskButton };

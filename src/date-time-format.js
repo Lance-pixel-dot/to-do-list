@@ -1,4 +1,4 @@
-import { format, toDate, isSameDay } from 'date-fns';
+import { format, toDate, isSameDay, differenceInHours } from 'date-fns';
 
 function formatDate(getDate){
     const formattedDate = format(toDate(getDate), "M/d/yyyy");
@@ -10,14 +10,19 @@ function formatTime(getTime){
     return formattedTime;
 }
 
-function isTaskOnQueue(getFormattedDate, getFormattedTime){
+function isTaskOnQueue(getFormattedDate, getFormattedTime, getTimeAndDate){
     const dateResult = isSameDay(getFormattedDate, new Date());
+    const hourLimit = differenceInHours(Date(), getTimeAndDate);
 
-    if(dateResult == true && getFormattedTime == format(Date(),"h:mm bbb")){
+    if(dateResult == true && getFormattedTime == format(Date(),"h:mm bbb") || hourLimit > -1){
         console.log("ding ding time to do your task!");
     }else{
         console.log("wait");
     }
+
+    console.log(hourLimit);
 }
 
 export { formatDate, formatTime, isTaskOnQueue };
+
+// getFormattedTime == format(Date(),"h:mm bbb") || getFormattedDate > format(Date(),"h:mm bbb"

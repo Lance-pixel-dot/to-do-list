@@ -1,45 +1,46 @@
-import { taskArr } from "./create-task";
 import { formatDate, formatTime, isTaskOnQueue } from "./date-time-format";
-// import { setLocalStorage } from "./local-storage";
 
 const contentDiv = document.querySelector('#content');
 
-function displayTask(){
+function displayTask(data){
+
+    if(contentDiv.textContent != ""){
+
+        const taskDetails = document.createElement('p');
+
+        data.forEach(e => {
+
+            const getTimeAndDate = `${e.dueDate} ${e.time}`
     
-    const taskDetails = document.createElement('p');
+            console.log(data);
+    
+            contentDiv.appendChild(taskDetails);
+    
+            taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time: ${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;
+    
+            isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
+        });
 
-    taskArr.forEach(e => {
+    }else if(contentDiv.textContent == ""){
 
-        const getTimeAndDate = `${e.dueDate} ${e.time}`
+        data.forEach(e => {
 
-        console.log(taskArr);
+            const taskDetails = document.createElement('p');
 
-        contentDiv.appendChild(taskDetails);
+            const getTimeAndDate = `${e.dueDate} ${e.time}`
 
-        taskDetails.textContent = `${e.title}, ${e.description}, ${formatDate(getTimeAndDate)}, ${formatTime(getTimeAndDate)}, ${e.priority}, ${e.repeat}`;
+            console.log(data);
 
-        isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate));
-    });
+            contentDiv.appendChild(taskDetails);
+
+            taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time: ${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;
+
+            isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
+
+        });
+
+    }
 
 };
-
-// function displayLocalTask(arrayData){
-
-//     taskArr.forEach(e => {
-
-//         const taskDetails = document.createElement('p');
-
-//         const getTimeAndDate = `${e.dueDate} ${e.time}`
-
-//         console.log(taskArr);
-
-//         contentDiv.appendChild(taskDetails);
-
-//         taskDetails.textContent = `${e.title}, ${e.description}, ${formatDate(getTimeAndDate)}, ${formatTime(getTimeAndDate)}, ${e.priority}, ${e.repeat}`;
-
-//         isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate));
-//     });
-
-// };
 
 export { displayTask };
