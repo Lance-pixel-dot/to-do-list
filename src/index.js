@@ -5,13 +5,14 @@ import { displayTask } from "./display-task";
 
 class Task {
 
-    constructor(title, description, dueDate, time, priority, repeat){
+    constructor(title, description, dueDate, time, priority, repeat, taskNumber){
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
         this.time = time;
         this.priority = priority;
         this.repeat = repeat;
+        this.taskNumber = taskNumber;
     }
 
 }
@@ -27,5 +28,5 @@ export { Task };
 //Start designing.
 //time format should be on a different module. (can be improved)
 //make notification on tasks on due on the DOM.
-//delete tasks.
+//delete tasks. (fix dom index number data attribute and fix index number data attribute on dom elements is not being collected)
 //edit tasks.

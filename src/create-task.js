@@ -1,5 +1,5 @@
 import { Task } from ".";
-import { setLocalStorage, storeData } from "./web-storage";
+import { storeData } from "./web-storage";
 
 const addTaskButton = document.querySelector('.add-task');
 const cancelButton = document.querySelector('.close-dialog');
