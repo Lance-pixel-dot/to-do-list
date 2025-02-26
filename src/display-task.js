@@ -4,42 +4,23 @@ const contentDiv = document.querySelector('#content');
 
 function displayTask(data){
 
-    if(contentDiv.textContent != ""){
+    const taskContainer = document.createElement('div');
+    const taskDetails = document.createElement('p');
+    const createDeleteButton = document.createElement('button');
 
-        const taskDetails = document.createElement('p');
+    createDeleteButton.textContent = "Remove task";
 
-        data.forEach(e => {
-
-            const getTimeAndDate = `${e.dueDate} ${e.time}`
+    const getTimeAndDate = `${data.dueDate} ${data.time}`
     
-            console.log(data);
+    console.log(data);
+
+    contentDiv.appendChild(taskContainer);
+    taskContainer.appendChild(taskDetails);
+    taskContainer.appendChild(createDeleteButton);
+
+    taskDetails.textContent = `Title: ${data.title}, Description: ${data.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${data.priority}, Repeat: ${data.repeat}`;
     
-            contentDiv.appendChild(taskDetails);
-    
-            taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time: ${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;
-    
-            isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
-        });
-
-    }else if(contentDiv.textContent == ""){
-
-        data.forEach(e => {
-
-            const taskDetails = document.createElement('p');
-
-            const getTimeAndDate = `${e.dueDate} ${e.time}`
-
-            console.log(data);
-
-            contentDiv.appendChild(taskDetails);
-
-            taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time: ${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;
-
-            isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
-
-        });
-
-    }
+    isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
 
 };
 

@@ -1,5 +1,5 @@
 import { Task } from ".";
-import { setLocalStorage, getLocalStorage } from "./web-storage";
+import { setLocalStorage, storeData } from "./web-storage";
 
 const addTaskButton = document.querySelector('.add-task');
 const cancelButton = document.querySelector('.close-dialog');
@@ -30,7 +30,7 @@ submitTaskButton.addEventListener('click', () => {
 
     const newTask = new Task(taskTitle, taskDescription, taskDueDate, taskTime, taskPriority, taskRepeat);
 
-    setLocalStorage(newTask);
+    storeData(newTask);
 
     taskTitleInput.value = "";
     taskDescriptionInput.value = "";
