@@ -1,24 +1,36 @@
 import { displayTask } from "./display-task";
 
-function storeData(data){
+function storeTask(task){
 
-    localStorage.setItem("userTask" + localStorage.length, JSON.stringify(data));
-    displayTask(data);
+    localStorage.setItem(localStorage.length, JSON.stringify(task));
+    // const key = localStorage.key(localStorage.length);
+    displayTask(task, localStorage.length);
 
 }
 
-function displayDataOnLoad(){
+function displayTaskOnLoad(){
+
+    const taskKeyArray = [];
 
     for(let i = 0; i < localStorage.length; i++){
 
-        const getLocalData = JSON.parse(localStorage.getItem('userTask' + i));
+        const key = localStorage.key(i);
+
+        taskKeyArray.push(key);
+
+        taskKeyArray.sort((function(a, b){return a - b}));
+    }
+
+    for(let i = 0; i < localStorage.length; i++){
+        const getLocalStore = JSON.parse(localStorage.getItem(taskKeyArray[i]));
+
+        console.log(taskKeyArray);
 
         if(localStorage.length != 0){
-            displayTask(getLocalData);
+            displayTask(getLocalStore, taskKeyArray[i]);
         }
-
     }
 
 }
 
-export { storeData, displayDataOnLoad };
+export { storeTask, displayTaskOnLoad };

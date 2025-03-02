@@ -1,5 +1,5 @@
 import { Task } from ".";
-import { storeData } from "./web-storage";
+import { storeTask } from "./web-storage";
 
 const addTaskButton = document.querySelector('.add-task');
 const cancelButton = document.querySelector('.close-dialog');
@@ -30,7 +30,7 @@ submitTaskButton.addEventListener('click', () => {
 
     const newTask = new Task(taskTitle, taskDescription, taskDueDate, taskTime, taskPriority, taskRepeat);
 
-    storeData(newTask);
+    storeTask(newTask);
 
     taskTitleInput.value = "";
     taskDescriptionInput.value = "";

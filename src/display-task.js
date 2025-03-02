@@ -3,32 +3,32 @@ import { deleteTask } from "./remove-task";
 
 const contentDiv = document.querySelector('#content');
 
-function displayTask(data){
+function displayTask(task, key){
 
     const taskContainer = document.createElement('div');
     taskContainer.className = 'task-container';
-    taskContainer.setAttribute("data-index", localStorage.length - 1);
+    taskContainer.setAttribute("key", key);
+
     const taskDetails = document.createElement('p');
-    const createDeleteButton = document.createElement('button');
+
+    const createDeleteButton = document.createElement('button')
     createDeleteButton.className = "delete-button";
-
     createDeleteButton.textContent = "Remove task";
+    createDeleteButton.addEventListener('click', deleteTask);
 
-    const getTimeAndDate = `${data.dueDate} ${data.time}`
+    const getTimeAndDate = `${task.dueDate} ${task.time}`
     
-    console.log(data);
+    console.log(task);
 
     contentDiv.appendChild(taskContainer);
     taskContainer.appendChild(taskDetails);
     taskContainer.appendChild(createDeleteButton);
 
-    taskDetails.textContent = `Title: ${data.title}, Description: ${data.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${data.priority}, Repeat: ${data.repeat}`;
+    taskDetails.textContent = `Title: ${task.title}, Description: ${task.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${task.priority}, Repeat: ${task.repeat}`;
     
     isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
 
-    const getDeleteButton = document.querySelectorAll('.delete-button');
-
-    deleteTask(getDeleteButton);
+    // const getDeleteButton = document.querySelector('.delete-button');
 
 };
 

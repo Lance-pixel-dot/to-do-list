@@ -1,22 +1,32 @@
 import { contentDiv } from "./display-task";
 
-function deleteTask(element){
+function deleteTask(e){
     
-    const getTaskContainer = document.querySelector(".task-container");
+    const index = e.target.parentElement.getAttribute('key');
 
-    element.forEach(e => {
+    console.log(index);
+
+    // const key = localStorage.key(index);
+
+    // console.log(key);
+
+    const getLocalStore = JSON.parse(localStorage.getItem(index));
+
+    console.log(getLocalStore);
+    // forEach(e => {
         
-        e.onclick = function(){
-        const index = getTaskContainer.getAttribute('data-index');
+    //     e.onclick = function(){
+    //     const parent = getTaskContainer.parentNode;
+    //     const index = getTaskContainer.getAttribute('index');
 
-        console.log(index);
+    //     console.log(index);
     
-        // contentDiv.removeChild(contentDiv.children[index]);
+    //     // contentDiv.removeChild(contentDiv.children[index]);
     
-        // const key = localStorage.key("userTask" + index);
-        // localStorage.removeItem(key);    
-        }    
-    });
+    //     // const key = localStorage.key("userTask" + index);
+    //     // localStorage.removeItem(key);    
+    //     }    
+    // });
 
     // element.forEach(e => {
     //     e.onclick = function(){
