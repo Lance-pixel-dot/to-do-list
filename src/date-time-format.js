@@ -24,5 +24,3 @@ function isTaskOnQueue(getFormattedDate, getFormattedTime, getTimeAndDate){
 }
 
 export { formatDate, formatTime, isTaskOnQueue };
-
-// getFormattedTime == format(Date(),"h:mm bbb") || getFormattedDate > format(Date(),"h:mm bbb"

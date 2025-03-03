@@ -3,32 +3,63 @@ import { deleteTask } from "./remove-task";
 
 const contentDiv = document.querySelector('#content');
 
-function displayTask(task, key){
+function displayTask(task){
+
+    if(contentDiv.textContent != ""){
 
     const taskContainer = document.createElement('div');
     taskContainer.className = 'task-container';
-    taskContainer.setAttribute("key", key);
 
     const taskDetails = document.createElement('p');
 
-    const createDeleteButton = document.createElement('button')
+    const createDeleteButton = document.createElement('button');
     createDeleteButton.className = "delete-button";
     createDeleteButton.textContent = "Remove task";
     createDeleteButton.addEventListener('click', deleteTask);
 
-    const getTimeAndDate = `${task.dueDate} ${task.time}`
+    task.forEach(e => {
+
+        const getTimeAndDate = `${e.dueDate} ${e.time}`
     
-    console.log(task);
+        console.log(e);
 
-    contentDiv.appendChild(taskContainer);
-    taskContainer.appendChild(taskDetails);
-    taskContainer.appendChild(createDeleteButton);
+        contentDiv.appendChild(taskContainer);
+        taskContainer.appendChild(taskDetails);
+        taskContainer.appendChild(createDeleteButton);
 
-    taskDetails.textContent = `Title: ${task.title}, Description: ${task.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${task.priority}, Repeat: ${task.repeat}`;
+        taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;
     
-    isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
+        isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
+    });
 
-    // const getDeleteButton = document.querySelector('.delete-button');
+  }else if(contentDiv.textContent == ""){
+    
+    task.forEach(e => {
+
+        const taskContainer = document.createElement('div');
+        taskContainer.className = 'task-container';
+            
+        const taskDetails = document.createElement('p');
+            
+        const createDeleteButton = document.createElement('button');
+        createDeleteButton.className = "delete-button";
+        createDeleteButton.textContent = "Remove task";
+        createDeleteButton.addEventListener('click', deleteTask);
+            
+        const getTimeAndDate = `${e.dueDate} ${e.time}`
+            
+        console.log(e);
+            
+        contentDiv.appendChild(taskContainer);
+        taskContainer.appendChild(taskDetails);
+        taskContainer.appendChild(createDeleteButton);
+            
+        taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;
+            
+        isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
+    });
+
+  }
 
 };
 

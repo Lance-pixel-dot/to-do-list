@@ -1,58 +1,22 @@
-import { contentDiv } from "./display-task";
+import { contentDiv, displayTask } from "./display-task";
 
-function deleteTask(e){
+function deleteTask(){
     
-    const index = e.target.parentElement.getAttribute('key');
+    const index = [...this.parentElement.parentElement.children].indexOf(this.parentElement);
+
+    const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
 
     console.log(index);
+    console.log(getLocalStore[index]);
 
-    // const key = localStorage.key(index);
+    this.parentElement.remove;
+    getLocalStore.splice(index, 1);
 
-    // console.log(key);
+    localStorage.setItem("userTask", JSON.stringify(getLocalStore));
 
-    const getLocalStore = JSON.parse(localStorage.getItem(index));
+    contentDiv.textContent = "";
 
-    console.log(getLocalStore);
-    // forEach(e => {
-        
-    //     e.onclick = function(){
-    //     const parent = getTaskContainer.parentNode;
-    //     const index = getTaskContainer.getAttribute('index');
-
-    //     console.log(index);
-    
-    //     // contentDiv.removeChild(contentDiv.children[index]);
-    
-    //     // const key = localStorage.key("userTask" + index);
-    //     // localStorage.removeItem(key);    
-    //     }    
-    // });
-
-    // element.forEach(e => {
-    //     e.onclick = function(){
-    //         const index = [...this.parentElement.parentElement.children].indexOf(this.parentElement);
-
-    //         const key = localStorage.key("userTask" + index);
-    //         localStorage.removeItem(key);
-            
-    //         for(let i = 0; i < localStorage.length; i++){
-
-    //             const getLocalData = JSON.parse(localStorage.getItem('userTask' + i));
-    //             // localStorage.clear();
-    //             localStorage.setItem("userTask" + localStorage.length, JSON.stringify(getLocalData));
-        
-    //         }
-
-    //         contentDiv.removeChild(contentDiv.children[index]);
-    //     }
-    // });
-
+    displayTask(getLocalStore);
 }
-
-//This function will get the tasks and edit their key to be in order then store them back to local storage.
-// function editTaskKey(){
-
-
-// }
 
 export { deleteTask };

@@ -1,6 +1,6 @@
 import "./styles.css";
 import { addTaskButton } from "./create-task";
-import { displayTaskOnLoad } from "./web-storage";
+import { displayLocalStorage } from "./web-storage";
 import { displayTask } from "./display-task";
 
 class Task {
@@ -17,7 +17,7 @@ class Task {
 
 }
 
-displayTaskOnLoad();
+displayLocalStorage();
 
 export { Task };
 
@@ -28,5 +28,5 @@ export { Task };
 //Start designing.
 //time format should be on a different module. (can be improved)
 //make notification on tasks on due on the DOM.
-//delete tasks. (make sure new key adds to the last number of the key to be in order.)
+//delete tasks. (delete task based on the array)
 //edit tasks.

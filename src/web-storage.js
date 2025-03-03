@@ -2,35 +2,36 @@ import { displayTask } from "./display-task";
 
 function storeTask(task){
 
-    localStorage.setItem(localStorage.length, JSON.stringify(task));
-    // const key = localStorage.key(localStorage.length);
-    displayTask(task, localStorage.length);
+    const taskArray = [];
 
-}
+    taskArray.push(task);
 
-function displayTaskOnLoad(){
+    const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
 
-    const taskKeyArray = [];
+    if(localStorage.length != 0){
 
-    for(let i = 0; i < localStorage.length; i++){
+        console.log(getLocalStore);
+        getLocalStore.push(task);
+        localStorage.setItem("userTask", JSON.stringify(getLocalStore));
+        displayLocalStorage();
 
-        const key = localStorage.key(i);
+    }else{
 
-        taskKeyArray.push(key);
+        localStorage.setItem("userTask", JSON.stringify(taskArray));
+        displayLocalStorage();
 
-        taskKeyArray.sort((function(a, b){return a - b}));
-    }
-
-    for(let i = 0; i < localStorage.length; i++){
-        const getLocalStore = JSON.parse(localStorage.getItem(taskKeyArray[i]));
-
-        console.log(taskKeyArray);
-
-        if(localStorage.length != 0){
-            displayTask(getLocalStore, taskKeyArray[i]);
-        }
     }
 
 }
 
-export { storeTask, displayTaskOnLoad };
+function displayLocalStorage(){
+
+    const getLocalStore = JSON.parse(localStorage.getItem("userTask"));
+
+    if(localStorage.length != 0){
+        displayTask(getLocalStore);
+    }
+
+}
+
+export { storeTask, displayLocalStorage };
