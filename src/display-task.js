@@ -1,5 +1,6 @@
 import { formatDate, formatTime, isTaskOnQueue } from "./date-time-format";
 import { deleteTask } from "./remove-task";
+import { editTask } from "./edit-task";
 
 const contentDiv = document.querySelector('#content');
 
@@ -13,9 +14,12 @@ function displayTask(task){
     const taskDetails = document.createElement('p');
 
     const createDeleteButton = document.createElement('button');
-    createDeleteButton.className = "delete-button";
     createDeleteButton.textContent = "Remove task";
     createDeleteButton.addEventListener('click', deleteTask);
+
+    const createEditButton = document.createElement('button');
+    createEditButton.textContent = "Edit Task";
+    createEditButton.addEventListener('click', editTask);
 
     task.forEach(e => {
 
@@ -25,6 +29,7 @@ function displayTask(task){
 
         contentDiv.appendChild(taskContainer);
         taskContainer.appendChild(taskDetails);
+        taskContainer.appendChild(createEditButton);
         taskContainer.appendChild(createDeleteButton);
 
         taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;
@@ -42,9 +47,12 @@ function displayTask(task){
         const taskDetails = document.createElement('p');
             
         const createDeleteButton = document.createElement('button');
-        createDeleteButton.className = "delete-button";
         createDeleteButton.textContent = "Remove task";
         createDeleteButton.addEventListener('click', deleteTask);
+
+        const createEditButton = document.createElement('button');
+        createEditButton.textContent = "Edit Task";
+        createEditButton.addEventListener('click', editTask);
             
         const getTimeAndDate = `${e.dueDate} ${e.time}`
             
@@ -52,6 +60,7 @@ function displayTask(task){
             
         contentDiv.appendChild(taskContainer);
         taskContainer.appendChild(taskDetails);
+        taskContainer.appendChild(createEditButton);
         taskContainer.appendChild(createDeleteButton);
             
         taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;

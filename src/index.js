@@ -24,9 +24,8 @@ export { Task };
 //list of tasks:
 //use date-fns methods/functions to make conditions on date and time if the task is due or overdue. (can be improved)
 //make sure multiple task can appear in the DOM. (can be improved)
-//use local storage API.
+//use local storage API. (can be improved)
 //Start designing.
 //time format should be on a different module. (can be improved)
 //make notification on tasks on due on the DOM.
-//delete tasks. (delete task based on the array)
-//edit tasks.
+//edit tasks.(make sure the submit button behaves differently between the create-task.js module and edit-task.js module)

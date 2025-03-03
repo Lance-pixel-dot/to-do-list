@@ -14,23 +14,32 @@ const dialog = document.querySelector('dialog');
 
 addTaskButton.addEventListener('click', () => {
     dialog.showModal();
+
+    submitTaskButton.textContent = "Submit";
+
+    submitTaskButton.addEventListener('click', () => {
+        const taskTitle = taskTitleInput.value;
+        const taskDescription = taskDescriptionInput.value;
+        const taskDueDate = taskDueDateInput.value;
+        const taskTime = taskTimeInput.value;
+        const taskPriority = taskPriorityInput.value;
+        const taskRepeat = taskRepeatInput.value;
+    
+        const newTask = new Task(taskTitle, taskDescription, taskDueDate, taskTime, taskPriority, taskRepeat);
+    
+        storeTask(newTask);
+    
+        taskTitleInput.value = "";
+        taskDescriptionInput.value = "";
+        taskDueDateInput.value = "";
+        taskTimeInput.value = "";
+        taskPriorityInput.value = "";
+        taskRepeatInput.value = "";
+    });
 });
 
 cancelButton.addEventListener('click', () => {
     dialog.close();
-});
-
-submitTaskButton.addEventListener('click', () => {
-    const taskTitle = taskTitleInput.value;
-    const taskDescription = taskDescriptionInput.value;
-    const taskDueDate = taskDueDateInput.value;
-    const taskTime = taskTimeInput.value;
-    const taskPriority = taskPriorityInput.value;
-    const taskRepeat = taskRepeatInput.value;
-
-    const newTask = new Task(taskTitle, taskDescription, taskDueDate, taskTime, taskPriority, taskRepeat);
-
-    storeTask(newTask);
 
     taskTitleInput.value = "";
     taskDescriptionInput.value = "";
@@ -40,4 +49,4 @@ submitTaskButton.addEventListener('click', () => {
     taskRepeatInput.value = "";
 });
 
-export { addTaskButton };
+export { addTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskTimeInput, taskPriorityInput, taskRepeatInput, dialog };
