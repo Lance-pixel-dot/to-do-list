@@ -1,7 +1,6 @@
 import "./styles.css";
 import { addTaskButton } from "./create-task";
 import { displayLocalStorage } from "./web-storage";
-import { displayTask } from "./display-task";
 
 class Task {
 

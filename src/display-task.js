@@ -6,7 +6,7 @@ const contentDiv = document.querySelector('#content');
 
 function displayTask(task){
 
-    if(contentDiv.textContent != ""){
+  if(contentDiv.textContent != ""){
 
     const taskContainer = document.createElement('div');
     taskContainer.className = 'task-container';
@@ -23,49 +23,49 @@ function displayTask(task){
 
     task.forEach(e => {
 
-        const getTimeAndDate = `${e.dueDate} ${e.time}`
+      const getTimeAndDate = `${e.dueDate} ${e.time}`
     
-        console.log(e);
+      console.log(e);
 
-        contentDiv.appendChild(taskContainer);
-        taskContainer.appendChild(taskDetails);
-        taskContainer.appendChild(createEditButton);
-        taskContainer.appendChild(createDeleteButton);
+      contentDiv.appendChild(taskContainer);
+      taskContainer.appendChild(taskDetails);
+      taskContainer.appendChild(createEditButton);
+      taskContainer.appendChild(createDeleteButton);
 
-        taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;
+      taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;
     
-        isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
+      isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
     });
 
   }else if(contentDiv.textContent == ""){
     
     task.forEach(e => {
 
-        const taskContainer = document.createElement('div');
-        taskContainer.className = 'task-container';
+      const taskContainer = document.createElement('div');
+      taskContainer.className = 'task-container';
             
-        const taskDetails = document.createElement('p');
+      const taskDetails = document.createElement('p');
             
-        const createDeleteButton = document.createElement('button');
-        createDeleteButton.textContent = "Remove task";
-        createDeleteButton.addEventListener('click', deleteTask);
+      const createDeleteButton = document.createElement('button');
+      createDeleteButton.textContent = "Remove task";
+      createDeleteButton.addEventListener('click', deleteTask);
 
-        const createEditButton = document.createElement('button');
-        createEditButton.textContent = "Edit Task";
-        createEditButton.addEventListener('click', editTask);
+      const createEditButton = document.createElement('button');
+      createEditButton.textContent = "Edit Task";
+      createEditButton.addEventListener('click', editTask);
             
-        const getTimeAndDate = `${e.dueDate} ${e.time}`
+      const getTimeAndDate = `${e.dueDate} ${e.time}`
             
-        console.log(e);
+      console.log(e);
             
-        contentDiv.appendChild(taskContainer);
-        taskContainer.appendChild(taskDetails);
-        taskContainer.appendChild(createEditButton);
-        taskContainer.appendChild(createDeleteButton);
+      contentDiv.appendChild(taskContainer);
+      taskContainer.appendChild(taskDetails);
+      taskContainer.appendChild(createEditButton);
+      taskContainer.appendChild(createDeleteButton);
             
-        taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;
+      taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;
             
-        isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
+      isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
     });
 
   }

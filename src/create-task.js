@@ -13,28 +13,34 @@ const taskRepeatInput = document.querySelector('#repeat');
 const dialog = document.querySelector('dialog');
 
 addTaskButton.addEventListener('click', () => {
+
+    submitTaskButton.className = "submit-task";
+
     dialog.showModal();
 
     submitTaskButton.textContent = "Submit";
 
     submitTaskButton.addEventListener('click', () => {
-        const taskTitle = taskTitleInput.value;
-        const taskDescription = taskDescriptionInput.value;
-        const taskDueDate = taskDueDateInput.value;
-        const taskTime = taskTimeInput.value;
-        const taskPriority = taskPriorityInput.value;
-        const taskRepeat = taskRepeatInput.value;
+
+        if(submitTaskButton.className == 'submit-task'){
+            const taskTitle = taskTitleInput.value;
+            const taskDescription = taskDescriptionInput.value;
+            const taskDueDate = taskDueDateInput.value;
+            const taskTime = taskTimeInput.value;
+            const taskPriority = taskPriorityInput.value;
+            const taskRepeat = taskRepeatInput.value;
     
-        const newTask = new Task(taskTitle, taskDescription, taskDueDate, taskTime, taskPriority, taskRepeat);
+            const newTask = new Task(taskTitle, taskDescription, taskDueDate, taskTime, taskPriority, taskRepeat);
     
-        storeTask(newTask);
+            storeTask(newTask);
     
-        taskTitleInput.value = "";
-        taskDescriptionInput.value = "";
-        taskDueDateInput.value = "";
-        taskTimeInput.value = "";
-        taskPriorityInput.value = "";
-        taskRepeatInput.value = "";
+            taskTitleInput.value = "";
+            taskDescriptionInput.value = "";
+            taskDueDateInput.value = "";
+            taskTimeInput.value = "";
+            taskPriorityInput.value = "";
+            taskRepeatInput.value = "";
+        }
     });
 });
 
@@ -49,4 +55,4 @@ cancelButton.addEventListener('click', () => {
     taskRepeatInput.value = "";
 });
 
-export { addTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskTimeInput, taskPriorityInput, taskRepeatInput, dialog };
+export { addTaskButton, submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskTimeInput, taskPriorityInput, taskRepeatInput, dialog };

@@ -1,10 +1,10 @@
-import { cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskTimeInput, taskPriorityInput, taskRepeatInput, dialog } from "./create-task";
-import { formatDate, formatTime } from "./date-time-format";
+import { submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskTimeInput, taskPriorityInput, taskRepeatInput, dialog } from "./create-task";
+import { contentDiv, displayTask } from "./display-task";
 
 function editTask(){
 
-    const saveButton = document.querySelector('.submit-task');
-    saveButton.textContent = "Save Changes"
+    submitTaskButton.className = 'save-task';
+    submitTaskButton.textContent = 'Save';
 
     const index = [...this.parentElement.parentElement.children].indexOf(this.parentElement);
 
@@ -28,39 +28,31 @@ function editTask(){
     const children = parent.children;
 
     const selectChildrenParagraph = children.item(0);
-
     console.log(selectChildrenParagraph);
 
-    saveButton.addEventListener('click', () => {
-        const getTimeAndDate = `${taskDueDateInput.value} ${taskTimeInput.value}`
+    submitTaskButton.addEventListener('click', () => {
 
-        selectChildrenParagraph.textContent = `Title: ${taskTitleInput.value}, Description: ${taskDescriptionInput.value}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${taskPriorityInput.value}, Repeat: ${taskRepeatInput.value}`;
+        if(submitTaskButton.className == 'save-task'){
+            getTask.title = taskTitleInput.value
+            getTask.description = taskDescriptionInput.value
+            getTask.dueDate = taskDueDateInput.value
+            getTask.time = taskTimeInput.value
+            getTask.priority = taskPriorityInput.value
+            getTask.repeat = taskRepeatInput.value
+
+            console.log(getTask);
+
+            getLocalStore.splice(index, 1, getTask);
+
+            console.log(getLocalStore);
+
+            localStorage.setItem("userTask", JSON.stringify(getLocalStore));
+
+            contentDiv.textContent = "";
+
+            displayTask(getLocalStore);
+        }
     })
-
-    // const taskContainer = document.createElement('div');
-    // taskContainer.className = 'task-container';
-        
-    // const taskDetails = document.createElement('p');
-        
-    // const createDeleteButton = document.createElement('button');
-    // createDeleteButton.textContent = "Remove task";
-    // createDeleteButton.addEventListener('click', deleteTask);
-
-    // const createEditButton = document.createElement('button');
-    // createEditButton.textContent = "Edit Task";
-    // createEditButton.addEventListener('click', editTask);
-        
-    // const getTimeAndDate = `${e.dueDate} ${e.time}`
-        
-    // contentDiv.appendChild(taskContainer);
-    // taskContainer.appendChild(taskDetails);
-    // taskContainer.appendChild(createEditButton);
-    // taskContainer.appendChild(createDeleteButton);
-        
-    // taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;
-        
-    // isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
-
 }
 
 
