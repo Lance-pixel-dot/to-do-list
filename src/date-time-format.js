@@ -10,17 +10,17 @@ function formatTime(getTime){
     return formattedTime;
 }
 
-function isTaskOnQueue(getFormattedDate, getFormattedTime, getTimeAndDate){
-    const dateResult = isSameDay(getFormattedDate, new Date());
-    const hourLimit = differenceInHours(Date(), getTimeAndDate);
+// function isTaskOnQueue(getFormattedDate, getFormattedTime, getTimeAndDate){
+//     const dateResult = isSameDay(getFormattedDate, new Date());
+//     const hourLimit = differenceInHours(Date(), getTimeAndDate);
 
-    if(dateResult == true && getFormattedTime == format(Date(),"h:mm bbb") || hourLimit > -1){
-        console.log("ding ding time to do your task!");
-    }else{
-        console.log("wait");
-    }
+//     if(dateResult == true && getFormattedTime == format(Date(),"h:mm bbb") || hourLimit > -1){
+//         console.log("ding ding time to do your task!");
+//     }else{
+//         console.log("wait");
+//     }
 
-    console.log(hourLimit);
-}
+//     console.log(hourLimit);
+// }
 
-export { formatDate, formatTime, isTaskOnQueue };
+export { formatDate, formatTime };

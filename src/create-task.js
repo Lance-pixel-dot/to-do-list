@@ -1,5 +1,6 @@
 import { Task } from ".";
 import { storeTask } from "./web-storage";
+import { contentDiv } from "./display-task";
 
 const addTaskButton = document.querySelector('.add-task');
 const cancelButton = document.querySelector('.close-dialog');
@@ -21,6 +22,8 @@ addTaskButton.addEventListener('click', () => {
     submitTaskButton.textContent = "Submit";
 
     submitTaskButton.addEventListener('click', () => {
+
+        contentDiv.textContent = "";
 
         if(submitTaskButton.className == 'submit-task'){
             const taskTitle = taskTitleInput.value;

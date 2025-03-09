@@ -6,11 +6,14 @@ function editTask(){
     submitTaskButton.className = 'save-task';
     submitTaskButton.textContent = 'Save';
 
-    const index = [...this.parentElement.parentElement.children].indexOf(this.parentElement);
+    const index = [...this.parentElement.parentElement.children].indexOf(this.parentElement) - 1;
+    // const index = this.parentElement.getAttribute('index');
 
     const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
 
     const getTask = getLocalStore[index];
+
+    console.log(index);
     
     console.log(getTask);
 

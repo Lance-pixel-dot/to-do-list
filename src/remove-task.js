@@ -2,7 +2,7 @@ import { contentDiv, displayTask } from "./display-task";
 
 function deleteTask(){
     
-    const index = [...this.parentElement.parentElement.children].indexOf(this.parentElement);
+    const index = [...this.parentElement.parentElement.children].indexOf(this.parentElement) - 1;
 
     const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
 

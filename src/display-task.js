@@ -4,12 +4,15 @@ import { editTask } from "./edit-task";
 
 const contentDiv = document.querySelector('#content');
 
-function displayTask(task){
+function displayTask(task, customAttributeName, customAttributeValue){
+
+  // let index = 0;
 
   if(contentDiv.textContent != ""){
 
     const taskContainer = document.createElement('div');
     taskContainer.className = 'task-container';
+    taskContainer.setAttribute(customAttributeName, customAttributeValue);
 
     const taskDetails = document.createElement('p');
 
@@ -24,8 +27,6 @@ function displayTask(task){
     task.forEach(e => {
 
       const getTimeAndDate = `${e.dueDate} ${e.time}`
-    
-      console.log(e);
 
       contentDiv.appendChild(taskContainer);
       taskContainer.appendChild(taskDetails);
@@ -34,15 +35,20 @@ function displayTask(task){
 
       taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;
     
-      isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
+      // isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
     });
 
   }else if(contentDiv.textContent == ""){
+
+    const allTaskHeader = document.createElement('h2'); 
+    allTaskHeader.textContent = 'All Tasks';
+    contentDiv.appendChild(allTaskHeader);
     
     task.forEach(e => {
 
       const taskContainer = document.createElement('div');
       taskContainer.className = 'task-container';
+      taskContainer.setAttribute(customAttributeName, customAttributeValue);
             
       const taskDetails = document.createElement('p');
             
@@ -56,8 +62,6 @@ function displayTask(task){
             
       const getTimeAndDate = `${e.dueDate} ${e.time}`
             
-      console.log(e);
-            
       contentDiv.appendChild(taskContainer);
       taskContainer.appendChild(taskDetails);
       taskContainer.appendChild(createEditButton);
@@ -65,7 +69,7 @@ function displayTask(task){
             
       taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;
             
-      isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
+      // isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
     });
 
   }
