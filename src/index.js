@@ -3,7 +3,7 @@ import { addTaskButton } from "./create-task";
 import { displayLocalStorage } from "./web-storage";
 import { viewTaskToday } from "./today-task";
 import { viewUpcomingTask } from "./upcoming-task";
-import { contentDiv } from "./display-task";
+import { taskHeaderName } from "./display-task";
 
 class Task {
 
@@ -27,11 +27,12 @@ const upcomingTaskButton = document.querySelector('.upcoming-button').addEventLi
     viewUpcomingTask();
 })
 
-const inboxButton = document.querySelector('.all-task-button').addEventListener('click', () => {
-    contentDiv.textContent = "";
+const allTaskButton = document.querySelector('.all-task-button').addEventListener('click', () => {
+    taskHeaderName.textContent = 'All Tasks';
     displayLocalStorage();
 })
 
+taskHeaderName.textContent = 'All Tasks';
 displayLocalStorage();
 
 export { Task };
@@ -44,4 +45,3 @@ export { Task };
 //time format should be on a different module. (can be improved)
 //make notification on tasks on due on the DOM.
 //edit tasks.(can be improved)
-//organize task based on upcoming and today tasks. (fix when on editing or deleting elements on today task section and upcoming task section, make sure the element selected is still the same index so it doesn't cause issues for not selecting the wrong index)

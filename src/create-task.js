@@ -1,6 +1,5 @@
 import { Task } from ".";
 import { storeTask } from "./web-storage";
-import { contentDiv } from "./display-task";
 
 const addTaskButton = document.querySelector('.add-task');
 const cancelButton = document.querySelector('.close-dialog');
@@ -21,30 +20,29 @@ addTaskButton.addEventListener('click', () => {
 
     submitTaskButton.textContent = "Submit";
 
-    submitTaskButton.addEventListener('click', () => {
+});
 
-        contentDiv.textContent = "";
+submitTaskButton.addEventListener('click', () => {
 
-        if(submitTaskButton.className == 'submit-task'){
-            const taskTitle = taskTitleInput.value;
-            const taskDescription = taskDescriptionInput.value;
-            const taskDueDate = taskDueDateInput.value;
-            const taskTime = taskTimeInput.value;
-            const taskPriority = taskPriorityInput.value;
-            const taskRepeat = taskRepeatInput.value;
-    
-            const newTask = new Task(taskTitle, taskDescription, taskDueDate, taskTime, taskPriority, taskRepeat);
-    
-            storeTask(newTask);
-    
-            taskTitleInput.value = "";
-            taskDescriptionInput.value = "";
-            taskDueDateInput.value = "";
-            taskTimeInput.value = "";
-            taskPriorityInput.value = "";
-            taskRepeatInput.value = "";
-        }
-    });
+    if(submitTaskButton.className == 'submit-task'){
+        const taskTitle = taskTitleInput.value;
+        const taskDescription = taskDescriptionInput.value;
+        const taskDueDate = taskDueDateInput.value;
+        const taskTime = taskTimeInput.value;
+        const taskPriority = taskPriorityInput.value;
+        const taskRepeat = taskRepeatInput.value;
+
+        const newTask = new Task(taskTitle, taskDescription, taskDueDate, taskTime, taskPriority, taskRepeat);
+
+        storeTask(newTask);
+
+        taskTitleInput.value = "";
+        taskDescriptionInput.value = "";
+        taskDueDateInput.value = "";
+        taskTimeInput.value = "";
+        taskPriorityInput.value = "";
+        taskRepeatInput.value = "";
+    }
 });
 
 cancelButton.addEventListener('click', () => {

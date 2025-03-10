@@ -1,14 +1,13 @@
-import { displayTask, contentDiv } from "./display-task";
+import { displayTask, contentDiv, taskHeaderName } from "./display-task";
 import { isSameDay } from "date-fns";
 
 function viewTaskToday(){
 
+    taskHeaderName.textContent = "Today";
+
     const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
 
     contentDiv.textContent = "";
-    const createTodayTaskHeader = document.createElement('h2');
-    createTodayTaskHeader.textContent = 'Today';
-    contentDiv.appendChild(createTodayTaskHeader);
 
     getLocalStore.forEach(e => {
         const getDate = e.dueDate;
@@ -20,14 +19,13 @@ function viewTaskToday(){
         const getTaskArray = [];
         getTaskArray.push(getLocalStore[index]);   
 
-        console.log(getTaskArray);
-
         const dateResult = isSameDay(getDate, new Date());
         // const hourLimit = differenceInHours(Date(), getTimeAndDate); 
 
         if(dateResult != true){
-            // displayTask(getTaskArray);
             displayTask(getTaskArray, attributeName, attributeValue);
+        }else if(dateResult == true){
+            displayTask(getTaskArray);
         }
 
     })

@@ -1,5 +1,7 @@
 import { submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskTimeInput, taskPriorityInput, taskRepeatInput, dialog } from "./create-task";
-import { contentDiv, displayTask } from "./display-task";
+import { contentDiv, displayTask, taskHeaderName } from "./display-task";
+import { viewTaskToday } from "./today-task";
+import { viewUpcomingTask } from "./upcoming-task";
 
 function editTask(){
 
@@ -7,7 +9,6 @@ function editTask(){
     submitTaskButton.textContent = 'Save';
 
     const index = [...this.parentElement.parentElement.children].indexOf(this.parentElement) - 1;
-    // const index = this.parentElement.getAttribute('index');
 
     const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
 
@@ -26,13 +27,6 @@ function editTask(){
 
     dialog.showModal();
 
-    const parent = this.parentElement;
-
-    const children = parent.children;
-
-    const selectChildrenParagraph = children.item(0);
-    console.log(selectChildrenParagraph);
-
     submitTaskButton.addEventListener('click', () => {
 
         if(submitTaskButton.className == 'save-task'){
@@ -43,17 +37,19 @@ function editTask(){
             getTask.priority = taskPriorityInput.value
             getTask.repeat = taskRepeatInput.value
 
-            console.log(getTask);
-
             getLocalStore.splice(index, 1, getTask);
-
-            console.log(getLocalStore);
 
             localStorage.setItem("userTask", JSON.stringify(getLocalStore));
 
             contentDiv.textContent = "";
 
-            displayTask(getLocalStore);
+            if(taskHeaderName.textContent == 'Today'){
+                viewTaskToday();
+            }else if(taskHeaderName.textContent == 'Upcoming'){
+                viewUpcomingTask();
+            }else{
+                displayTask(getLocalStore);
+            }
         }
     })
 }

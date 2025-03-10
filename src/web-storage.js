@@ -1,22 +1,20 @@
-import { displayTask } from "./display-task";
+import { contentDiv, displayTask, taskHeaderName } from "./display-task";
+import { viewTaskToday } from "./today-task";
+import { viewUpcomingTask } from "./upcoming-task";
 
 function storeTask(task){
 
-    const taskArray = [];
-
-    taskArray.push(task);
-
-    const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
-
     if(localStorage.length != 0){
 
-        console.log(getLocalStore);
+        const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
         getLocalStore.push(task);
         localStorage.setItem("userTask", JSON.stringify(getLocalStore));
         displayLocalStorage();
 
     }else{
 
+        const taskArray = [];
+        taskArray.push(task);
         localStorage.setItem("userTask", JSON.stringify(taskArray));
         displayLocalStorage();
 
@@ -26,10 +24,18 @@ function storeTask(task){
 
 function displayLocalStorage(){
 
-    const getLocalStore = JSON.parse(localStorage.getItem("userTask"));
-
     if(localStorage.length != 0){
-        displayTask(getLocalStore);
+
+        if(taskHeaderName.textContent == 'Today'){
+            viewTaskToday();
+        }else if(taskHeaderName.textContent == 'Upcoming'){
+            viewUpcomingTask();
+        }else{
+            const getLocalStore = JSON.parse(localStorage.getItem("userTask"));
+            contentDiv.textContent = "";
+            displayTask(getLocalStore);
+        }
+
     }
 
 }

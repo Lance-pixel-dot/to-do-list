@@ -1,12 +1,11 @@
-import { formatDate, formatTime, isTaskOnQueue } from "./date-time-format";
+import { formatDate, formatTime } from "./date-time-format";
 import { deleteTask } from "./remove-task";
 import { editTask } from "./edit-task";
 
 const contentDiv = document.querySelector('#content');
+const taskHeaderName = document.createElement('h2'); 
 
 function displayTask(task, customAttributeName, customAttributeValue){
-
-  // let index = 0;
 
   if(contentDiv.textContent != ""){
 
@@ -35,14 +34,11 @@ function displayTask(task, customAttributeName, customAttributeValue){
 
       taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;
     
-      // isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
     });
 
   }else if(contentDiv.textContent == ""){
 
-    const allTaskHeader = document.createElement('h2'); 
-    allTaskHeader.textContent = 'All Tasks';
-    contentDiv.appendChild(allTaskHeader);
+    contentDiv.appendChild(taskHeaderName);
     
     task.forEach(e => {
 
@@ -69,11 +65,10 @@ function displayTask(task, customAttributeName, customAttributeValue){
             
       taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(getTimeAndDate)}, Time:${formatTime(getTimeAndDate)}, Priority: ${e.priority}, Repeat: ${e.repeat}`;
             
-      // isTaskOnQueue(formatDate(getTimeAndDate), formatTime(getTimeAndDate), getTimeAndDate);
     });
 
   }
 
 };
 
-export { displayTask, contentDiv };
+export { displayTask, contentDiv, taskHeaderName };
