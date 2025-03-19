@@ -50,9 +50,11 @@ export { Task };
 //time format should be on a different module. (can be improved)
 //make notification on tasks on due on the DOM.
 //edit tasks.(can be improved)
-//make task complete.
-//make time and repeat work.
+//make task complete. (can be improved)
 //make priorities work.
+//make projects work.
+//make sections under projects work.
+//make time and repeat work.
 
 //notes
 //every time a task is completed it will be in the new array for incase you want to re-use that task you will need to "push" it back at the end or last index of active userTask array therefore it will have a new date for that task to be completed.
