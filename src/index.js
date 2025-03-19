@@ -7,14 +7,14 @@ import { taskHeaderName } from "./display-task";
 
 class Task {
 
-    constructor(title, description, dueDate, time, priority, repeat, taskNumber){
+    constructor(title, description, dueDate, priority){
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
-        this.time = time;
+        // this.time = time;
         this.priority = priority;
-        this.repeat = repeat;
-        this.taskNumber = taskNumber;
+        // this.repeat = repeat;
+        // this.taskNumber = taskNumber;
     }
 
 }

@@ -5,9 +5,9 @@ function formatDate(getDate){
     return formattedDate;
 }
 
-function formatTime(getTime){
-    const formattedTime = format(toDate(getTime), "h:mm bbb");
-    return formattedTime;
-}
+// function formatTime(getTime){
+//     const formattedTime = format(toDate(getTime), "h:mm bbb");
+//     return formattedTime;
+// }
 
-export { formatDate, formatTime };
+export { formatDate };

@@ -1,4 +1,4 @@
-import { submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskTimeInput, taskPriorityInput, taskRepeatInput, dialog } from "./create-task";
+import { submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput, dialog} from "./create-task";
 import { contentDiv, displayTask, taskHeaderName } from "./display-task";
 import { viewTaskToday } from "./today-task";
 import { viewUpcomingTask } from "./upcoming-task";
@@ -21,9 +21,9 @@ function editTask(){
     taskTitleInput.value = getTask.title;
     taskDescriptionInput.value = getTask.description;
     taskDueDateInput.value = getTask.dueDate;
-    taskTimeInput.value = getTask.time;
+    // taskTimeInput.value = getTask.time;
     taskPriorityInput.value = getTask.priority;
-    taskRepeatInput.value = getTask.repeat;
+    // taskRepeatInput.value = getTask.repeat;
 
     dialog.showModal();
 
@@ -33,9 +33,9 @@ function editTask(){
             getTask.title = taskTitleInput.value
             getTask.description = taskDescriptionInput.value
             getTask.dueDate = taskDueDateInput.value
-            getTask.time = taskTimeInput.value
+            // getTask.time = taskTimeInput.value
             getTask.priority = taskPriorityInput.value
-            getTask.repeat = taskRepeatInput.value
+            // getTask.repeat = taskRepeatInput.value
 
             getLocalStore.splice(index, 1, getTask);
 
