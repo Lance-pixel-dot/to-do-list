@@ -4,6 +4,7 @@ import { displayLocalStorage } from "./web-storage";
 import { viewTaskToday } from "./today-task";
 import { viewUpcomingTask } from "./upcoming-task";
 import { taskHeaderName } from "./display-task";
+import { displayCompleteTask } from "./complete-task";
 
 class Task {
 
@@ -32,6 +33,10 @@ const allTaskButton = document.querySelector('.all-task-button').addEventListene
     displayLocalStorage();
 })
 
+const completedTaskButton = document.querySelector('.complete-button').addEventListener('click', () => {
+    displayCompleteTask();
+})
+
 taskHeaderName.textContent = 'All Tasks';
 displayLocalStorage();
 
@@ -45,3 +50,9 @@ export { Task };
 //time format should be on a different module. (can be improved)
 //make notification on tasks on due on the DOM.
 //edit tasks.(can be improved)
+//make task complete.
+//make time and repeat work.
+//make priorities work.
+
+//notes
+//every time a task is completed it will be in the new array for incase you want to re-use that task you will need to "push" it back at the end or last index of active userTask array therefore it will have a new date for that task to be completed.

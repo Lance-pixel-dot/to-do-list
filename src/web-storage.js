@@ -30,6 +30,11 @@ function displayLocalStorage(){
             viewTaskToday();
         }else if(taskHeaderName.textContent == 'Upcoming'){
             viewUpcomingTask();
+        }else if(taskHeaderName.textContent == 'Completed Tasks'){
+            const getLocalStore = JSON.parse(localStorage.getItem("userTask"));
+            contentDiv.textContent = "";
+            taskHeaderName.textContent = "All Tasks";
+            displayTask(getLocalStore);
         }else{
             const getLocalStore = JSON.parse(localStorage.getItem("userTask"));
             contentDiv.textContent = "";

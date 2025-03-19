@@ -1,6 +1,7 @@
 import { formatDate } from "./date-format";
 import { deleteTask } from "./remove-task";
 import { editTask } from "./edit-task";
+import { completeTask } from "./complete-task";
 
 const contentDiv = document.querySelector('#content');
 const taskHeaderName = document.createElement('h2'); 
@@ -24,8 +25,8 @@ function displayTask(task, customAttributeName, customAttributeValue){
     createEditButton.addEventListener('click', editTask);
 
     const createCompleteButton = document.createElement('button');
-    createEditButton.textContent = "Mark as complete";
-    // createEditButton.addEventListener('click', editTask);
+    createCompleteButton.textContent = "Mark as complete";
+    createCompleteButton.addEventListener('click', completeTask);
 
     task.forEach(e => {
 
@@ -33,8 +34,12 @@ function displayTask(task, customAttributeName, customAttributeValue){
 
       contentDiv.appendChild(taskContainer);
       taskContainer.appendChild(taskDetails);
-      taskContainer.appendChild(createEditButton);
-      taskContainer.appendChild(createDeleteButton);
+
+      if(taskHeaderName.textContent != 'Completed Tasks'){
+        taskContainer.appendChild(createEditButton);
+        taskContainer.appendChild(createDeleteButton);
+        taskContainer.appendChild(createCompleteButton);
+      }   
 
       taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(e.dueDate)}, Priority: ${e.priority}`;
     
@@ -61,15 +66,19 @@ function displayTask(task, customAttributeName, customAttributeValue){
       createEditButton.addEventListener('click', editTask);
 
       const createCompleteButton = document.createElement('button');
-      createEditButton.textContent = "Mark as complete";
-    // createEditButton.addEventListener('click', editTask);
+      createCompleteButton.textContent = "Mark as complete";
+      createCompleteButton.addEventListener('click', completeTask);
             
       // const getTimeAndDate = `${e.dueDate} ${e.time}`
-            
+
       contentDiv.appendChild(taskContainer);
       taskContainer.appendChild(taskDetails);
-      taskContainer.appendChild(createEditButton);
-      taskContainer.appendChild(createDeleteButton);
+
+      if(taskHeaderName.textContent != 'Completed Tasks'){
+        taskContainer.appendChild(createEditButton);
+        taskContainer.appendChild(createDeleteButton);
+        taskContainer.appendChild(createCompleteButton);
+      }   
             
       taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(e.dueDate)}, Priority: ${e.priority}`;
             
