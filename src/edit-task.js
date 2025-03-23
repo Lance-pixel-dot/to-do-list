@@ -1,4 +1,4 @@
-import { submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput, dialog} from "./create-task";
+import { submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput, dialog, taskForm} from "./create-task";
 import { contentDiv, displayTask, taskHeaderName } from "./display-task";
 import { viewTaskToday } from "./today-task";
 import { viewUpcomingTask } from "./upcoming-task";
@@ -27,7 +27,9 @@ function editTask(){
 
     dialog.showModal();
 
-    submitTaskButton.addEventListener('click', () => {
+    taskForm.addEventListener('submit', e => {
+
+        e.preventDefault();
 
         if(submitTaskButton.className == 'save-task'){
             getTask.title = taskTitleInput.value

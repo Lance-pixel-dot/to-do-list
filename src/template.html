@@ -13,22 +13,27 @@
         <button class="today-button">Today</button>
         <button class="upcoming-button">Upcoming</button>
         <button class="complete-button">Completed</button>
+        <!-- <div class="projects-section">
+            
+        </div> -->
     </nav>
 
     <dialog class="add-new-task">
-        <input type="text" class="task-title" placeholder="Title">
-        <textarea class="task-description" placeholder="Description"></textarea>
-        <input type="date" class="task-due-date" placeholder="Due Date">
-        <!-- <input type="time" class="task-time" placeholder="time"> -->
-        <div class="priority">
-            <input type="checkbox" id="priority" name="priority">
-            <label for="priority">Priority</label>
-        </div>
-        <!-- <div class="repeat">
-            <input type="checkbox" id="repeat" name="repeat">
-            <label for="repeat">Repeat</label>
-        </div> -->
-        <button class="submit-task">Submit</button>
+        <form class="task-form">
+            <input type="text" class="task-title" placeholder="Title" required>
+            <textarea class="task-description" placeholder="Description" required></textarea>
+            <input type="date" class="task-due-date" placeholder="Due Date" required>
+            <!-- <input type="time" class="task-time" placeholder="time"> -->
+            <div class="priority">
+                <input type="checkbox" id="priority" name="priority" required>
+                <label for="priority">Priority</label>
+            </div>
+            <!-- <div class="repeat">
+                <input type="checkbox" id="repeat" name="repeat">
+                <label for="repeat">Repeat</label>
+            </div> -->
+            <button type="submit" class="submit-task">Submit</button>
+        </form>
         <button class="close-dialog">Cancel</button>
     </dialog>
 

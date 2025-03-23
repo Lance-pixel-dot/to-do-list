@@ -5,6 +5,7 @@ import { viewTaskToday } from "./today-task";
 import { viewUpcomingTask } from "./upcoming-task";
 import { taskHeaderName } from "./display-task";
 import { displayCompleteTask } from "./complete-task";
+import { taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput } from "./create-task";
 
 class Task {
 
@@ -42,15 +43,16 @@ displayLocalStorage();
 
 export { Task };
 
-//list of tasks:
+//list of objectives:
 //use date-fns methods/functions to make conditions on date and time if the task is due or overdue. (can be improved)
 //make sure multiple task can appear in the DOM. (can be improved)
 //use local storage API. (can be improved)
 //Start designing.
 //time format should be on a different module. (can be improved)
-//make notification on tasks on due on the DOM.
+//make notification on tasks on due on the DOM. (If you can)
 //edit tasks.(can be improved)
 //make task complete. (can be improved)
+//make overdue tasks work.
 //make priorities work.
 //make projects work.
 //make sections under projects work.

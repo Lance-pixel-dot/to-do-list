@@ -4,6 +4,7 @@ import { storeTask } from "./web-storage";
 const addTaskButton = document.querySelector('.add-task');
 const cancelButton = document.querySelector('.close-dialog');
 const submitTaskButton = document.querySelector('.submit-task');
+const taskForm = document.querySelector('.task-form');
 const taskTitleInput = document.querySelector('.task-title');
 const taskDescriptionInput = document.querySelector('.task-description');
 const taskDueDateInput = document.querySelector('.task-due-date');
@@ -22,7 +23,8 @@ addTaskButton.addEventListener('click', () => {
 
 });
 
-submitTaskButton.addEventListener('click', () => {
+taskForm.addEventListener('submit', e => {
+    e.preventDefault();
 
     if(submitTaskButton.className == 'submit-task'){
         const taskTitle = taskTitleInput.value;
@@ -45,7 +47,8 @@ submitTaskButton.addEventListener('click', () => {
         taskPriorityInput.value = "";
         // taskRepeatInput.value = "";
     }
-});
+    
+})
 
 cancelButton.addEventListener('click', () => {
     dialog.close();
@@ -58,4 +61,4 @@ cancelButton.addEventListener('click', () => {
     // taskRepeatInput.value = "";
 });
 
-export { addTaskButton, submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput, dialog };
+export { addTaskButton, submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput, dialog, taskForm };

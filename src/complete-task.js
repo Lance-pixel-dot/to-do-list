@@ -35,9 +35,9 @@ function completeTask(){
 
 function displayCompleteTask(){
 
-    taskHeaderName.textContent = "Completed Tasks";
-
     contentDiv.textContent = "";
+
+    taskHeaderName.textContent = "Completed Tasks";
 
     const getLocalCompletedTask = JSON.parse(localStorage.getItem('completedTask'));
 
