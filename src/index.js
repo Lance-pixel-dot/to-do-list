@@ -5,7 +5,7 @@ import { viewTaskToday } from "./today-task";
 import { viewUpcomingTask } from "./upcoming-task";
 import { taskHeaderName } from "./display-task";
 import { displayCompleteTask } from "./complete-task";
-import { viewOverdueTask } from "./overdue-task";
+import { viewOverdueTask, overdueSpan } from "./overdue-task";
 // import { taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput } from "./create-task";
 
 class Task {
@@ -23,19 +23,23 @@ class Task {
 }
 
 const todayTaskButton = document.querySelector('.today-button').addEventListener('click', () => {
+    overdueSpan.textContent = "";
     viewTaskToday();
 })
 
 const upcomingTaskButton = document.querySelector('.upcoming-button').addEventListener('click', () => {
+    overdueSpan.textContent = "";
     viewUpcomingTask();
 })
 
 const allTaskButton = document.querySelector('.all-task-button').addEventListener('click', () => {
+    overdueSpan.textContent = "";
     taskHeaderName.textContent = 'All Tasks';
     displayLocalStorage();
 })
 
 const completedTaskButton = document.querySelector('.complete-button').addEventListener('click', () => {
+    overdueSpan.textContent = "";
     displayCompleteTask();
 })
 

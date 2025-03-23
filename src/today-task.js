@@ -1,4 +1,4 @@
-import { displayTask, contentDiv, taskHeaderName } from "./display-task";
+import { displayTask, contentDiv, taskHeaderName, taskList } from "./display-task";
 import { isSameDay } from "date-fns";
 
 function viewTaskToday(){
@@ -8,6 +8,7 @@ function viewTaskToday(){
     const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
 
     contentDiv.textContent = "";
+    taskList.textContent = "";
 
     getLocalStore.forEach(e => {
         const getDate = e.dueDate;

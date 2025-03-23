@@ -1,10 +1,10 @@
 import { displayTask } from "./display-task";
-import { contentDiv } from "./display-task";
+import { contentDiv, taskList } from "./display-task";
 import { taskHeaderName } from "./display-task";
 
 function completeTask(){
     
-    const index = [...this.parentElement.parentElement.children].indexOf(this.parentElement) - 1;
+    const index = [...this.parentElement.parentElement.children].indexOf(this.parentElement);
 
     const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
 
@@ -24,7 +24,7 @@ function completeTask(){
                 localStorage.setItem("completedTask", JSON.stringify(getLocalCompletedTask));
             }
 
-            const removeParent = contentDiv.removeChild(contentDiv.children[index + 1]);
+            const removeParent = taskList.removeChild(taskList.children[index]);
             getLocalStore.splice(index, 1);
             localStorage.setItem("userTask", JSON.stringify(getLocalStore));
 
@@ -36,6 +36,7 @@ function completeTask(){
 function displayCompleteTask(){
 
     contentDiv.textContent = "";
+    taskList.textContent = "";
 
     taskHeaderName.textContent = "Completed Tasks";
 

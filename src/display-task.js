@@ -2,9 +2,11 @@ import { formatDate } from "./date-format";
 import { deleteTask } from "./remove-task";
 import { editTask } from "./edit-task";
 import { completeTask } from "./complete-task";
+import { overdueSpan } from "./overdue-task";
 
 const contentDiv = document.querySelector('#content');
-const taskHeaderName = document.createElement('h2'); 
+const taskHeaderName = document.createElement('h2');
+const taskList = document.createElement('div');
 
 function displayTask(task, customAttributeName, customAttributeValue){
 
@@ -32,22 +34,24 @@ function displayTask(task, customAttributeName, customAttributeValue){
 
       // const getDate = `${e.dueDate}`;
 
-      contentDiv.appendChild(taskContainer);
+      taskList.appendChild(taskContainer)
       taskContainer.appendChild(taskDetails);
 
       if(taskHeaderName.textContent != 'Completed Tasks'){
         taskContainer.appendChild(createEditButton);
         taskContainer.appendChild(createDeleteButton);
         taskContainer.appendChild(createCompleteButton);
-      }   
+      }  
 
       taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(e.dueDate)}, Priority: ${e.priority}`;
     
     });
 
   }else if(contentDiv.textContent == ""){
-
+   
     contentDiv.appendChild(taskHeaderName);
+    contentDiv.appendChild(overdueSpan);
+    contentDiv.appendChild(taskList);
     
     task.forEach(e => {
 
@@ -71,14 +75,14 @@ function displayTask(task, customAttributeName, customAttributeValue){
             
       // const getTimeAndDate = `${e.dueDate} ${e.time}`
 
-      contentDiv.appendChild(taskContainer);
+      taskList.appendChild(taskContainer);
       taskContainer.appendChild(taskDetails);
 
       if(taskHeaderName.textContent != 'Completed Tasks'){
         taskContainer.appendChild(createEditButton);
         taskContainer.appendChild(createDeleteButton);
         taskContainer.appendChild(createCompleteButton);
-      }   
+      }
             
       taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(e.dueDate)}, Priority: ${e.priority}`;
             
@@ -88,4 +92,4 @@ function displayTask(task, customAttributeName, customAttributeValue){
 
 };
 
-export { displayTask, contentDiv, taskHeaderName };
+export { displayTask, contentDiv, taskHeaderName, taskList };

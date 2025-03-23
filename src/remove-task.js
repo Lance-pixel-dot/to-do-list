@@ -1,12 +1,12 @@
-import { contentDiv } from "./display-task";
+import { taskList } from "./display-task";
 
 function deleteTask(){
     
-    const index = [...this.parentElement.parentElement.children].indexOf(this.parentElement) - 1;
+    const index = [...this.parentElement.parentElement.children].indexOf(this.parentElement);
 
     const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
 
-    const removeParent = contentDiv.removeChild(contentDiv.children[index + 1]);
+    const removeParent = taskList.removeChild(taskList.children[index]);
     getLocalStore.splice(index, 1);
 
     localStorage.setItem("userTask", JSON.stringify(getLocalStore));

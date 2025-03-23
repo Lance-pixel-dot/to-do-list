@@ -1,14 +1,15 @@
 import { submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput, dialog, taskForm} from "./create-task";
-import { contentDiv, displayTask, taskHeaderName } from "./display-task";
+import { contentDiv, displayTask, taskHeaderName, taskList } from "./display-task";
 import { viewTaskToday } from "./today-task";
 import { viewUpcomingTask } from "./upcoming-task";
+import { viewOverdueTask } from "./overdue-task";
 
 function editTask(){
 
     submitTaskButton.className = 'save-task';
     submitTaskButton.textContent = 'Save';
 
-    const index = [...this.parentElement.parentElement.children].indexOf(this.parentElement) - 1;
+    const index = [...this.parentElement.parentElement.children].indexOf(this.parentElement);
 
     const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
 
@@ -44,11 +45,14 @@ function editTask(){
             localStorage.setItem("userTask", JSON.stringify(getLocalStore));
 
             contentDiv.textContent = "";
+            taskList.textContent = "";
 
             if(taskHeaderName.textContent == 'Today'){
                 viewTaskToday();
             }else if(taskHeaderName.textContent == 'Upcoming'){
                 viewUpcomingTask();
+            }else if(taskHeaderName.textContent == 'Overdue'){
+                viewOverdueTask();
             }else{
                 displayTask(getLocalStore);
             }

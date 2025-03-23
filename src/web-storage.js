@@ -1,6 +1,7 @@
-import { contentDiv, displayTask, taskHeaderName } from "./display-task";
+import { contentDiv, displayTask, taskHeaderName, taskList } from "./display-task";
 import { viewTaskToday } from "./today-task";
 import { viewUpcomingTask } from "./upcoming-task";
+import { viewOverdueTask } from "./overdue-task";
 
 function storeTask(task){
 
@@ -34,9 +35,12 @@ function displayLocalStorage(){
             const getLocalStore = JSON.parse(localStorage.getItem("completedTask"));
             contentDiv.textContent = "";
             displayTask(getLocalStore);
+        }else if(taskHeaderName.textContent == 'Overdue'){
+            viewOverdueTask();
         }else{
             const getLocalStore = JSON.parse(localStorage.getItem("userTask"));
             contentDiv.textContent = "";
+            taskList.textContent = "";
             displayTask(getLocalStore);
         }
 
