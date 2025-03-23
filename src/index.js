@@ -5,7 +5,8 @@ import { viewTaskToday } from "./today-task";
 import { viewUpcomingTask } from "./upcoming-task";
 import { taskHeaderName } from "./display-task";
 import { displayCompleteTask } from "./complete-task";
-import { taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput } from "./create-task";
+import { viewOverdueTask } from "./overdue-task";
+// import { taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput } from "./create-task";
 
 class Task {
 
@@ -38,6 +39,10 @@ const completedTaskButton = document.querySelector('.complete-button').addEventL
     displayCompleteTask();
 })
 
+const overdueButton = document.querySelector('.overdue-button').addEventListener('click', () => {
+    viewOverdueTask();
+})
+
 taskHeaderName.textContent = 'All Tasks';
 displayLocalStorage();
 
@@ -52,7 +57,8 @@ export { Task };
 //make notification on tasks on due on the DOM. (If you can)
 //edit tasks.(can be improved)
 //make task complete. (can be improved)
-//make overdue tasks work.
+//make overdue tasks work. (can be improved)
+//put all tasks under one div.
 //make priorities work.
 //make projects work.
 //make sections under projects work.
