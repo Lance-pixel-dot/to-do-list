@@ -12,12 +12,9 @@ function viewOverdueTask(){
     contentDiv.textContent = "";
     taskList.textContent = "";
 
-    overdueSpan.textContent = "the following tasks are overdue!"
+    overdueSpan.textContent = "the following tasks are overdue!";
 
     getLocalStore.forEach(e => {
-
-        // contentDiv.appendChild(overdueSpan);
-
         const getDate = e.dueDate;
 
         const attributeName = 'style';
@@ -30,9 +27,9 @@ function viewOverdueTask(){
         const dateResult = differenceInCalendarDays(Date(), getDate);
         // const hourLimit = differenceInHours(Date(), getTimeAndDate);
 
-        if(dateResult < 0){
+        if(dateResult <= 0){
             displayTask(getTaskArray, attributeName, attributeValue);
-        }else if(dateResult > 0){
+        }else{
             displayTask(getTaskArray);
         }
 

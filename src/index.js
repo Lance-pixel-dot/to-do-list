@@ -23,28 +23,38 @@ class Task {
 }
 
 const todayTaskButton = document.querySelector('.today-button').addEventListener('click', () => {
-    overdueSpan.textContent = "";
-    viewTaskToday();
+    if(localStorage.length > 0){
+        overdueSpan.textContent = "";
+        viewTaskToday();
+    }
 })
 
 const upcomingTaskButton = document.querySelector('.upcoming-button').addEventListener('click', () => {
-    overdueSpan.textContent = "";
-    viewUpcomingTask();
+    if(localStorage.length > 0){
+        overdueSpan.textContent = "";
+        viewUpcomingTask();
+    }
 })
 
 const allTaskButton = document.querySelector('.all-task-button').addEventListener('click', () => {
-    overdueSpan.textContent = "";
-    taskHeaderName.textContent = 'All Tasks';
-    displayLocalStorage();
+    if(localStorage.length > 0){
+        overdueSpan.textContent = "";
+        taskHeaderName.textContent = 'All Tasks';
+        displayLocalStorage();
+    }
 })
 
 const completedTaskButton = document.querySelector('.complete-button').addEventListener('click', () => {
-    overdueSpan.textContent = "";
-    displayCompleteTask();
+    if(localStorage.length > 1){
+        overdueSpan.textContent = "";
+        displayCompleteTask();
+    }
 })
 
 const overdueButton = document.querySelector('.overdue-button').addEventListener('click', () => {
-    viewOverdueTask();
+    if(localStorage.length > 0){
+        viewOverdueTask();
+    }
 })
 
 taskHeaderName.textContent = 'All Tasks';
@@ -62,10 +72,10 @@ export { Task };
 //edit tasks.(can be improved)
 //make task complete. (can be improved)
 //make overdue tasks work. (can be improved)
-//put all tasks under one div.
-//make priorities work.
+//fix when local storage is empty. (can be improved with better features while it is empty)
+//make priorities work. (can be improved)
 //make projects work.
-//make sections under projects work.
+//make sections/sub projects under projects work.
 //make time and repeat work.
 
 //notes

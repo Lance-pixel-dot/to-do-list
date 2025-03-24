@@ -23,9 +23,9 @@ function viewUpcomingTask(){
         const dateResult = differenceInCalendarDays(Date(), getDate);
         // const hourLimit = differenceInHours(Date(), getTimeAndDate);
 
-        if(dateResult > 0){
+        if(dateResult >= 0){
             displayTask(getTaskArray, attributeName, attributeValue);
-        }else if(dateResult < 0){
+        }else{
             displayTask(getTaskArray);
         }
 

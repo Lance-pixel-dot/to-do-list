@@ -25,7 +25,7 @@ function storeTask(task){
 
 function displayLocalStorage(){
 
-    if(localStorage.length != 0){
+    if(localStorage.length > 0){
 
         if(taskHeaderName.textContent == 'Today'){
             viewTaskToday();
