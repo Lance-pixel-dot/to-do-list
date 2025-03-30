@@ -15,9 +15,9 @@ function editTask(){
 
     const getTask = getLocalStore[index];
 
-    console.log(index);
+    // console.log(index);
     
-    console.log(getTask);
+    // console.log(getTask);
 
     taskTitleInput.value = getTask.title;
     taskDescriptionInput.value = getTask.description;
@@ -39,6 +39,7 @@ function editTask(){
             // getTask.time = taskTimeInput.value
             getTask.priority = taskPriorityInput.value
             // getTask.repeat = taskRepeatInput.value
+            // getTask.projectName = projectName
 
             getLocalStore.splice(index, 1, getTask);
 

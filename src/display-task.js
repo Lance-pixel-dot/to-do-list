@@ -43,7 +43,7 @@ function displayTask(task, customAttributeName, customAttributeValue){
         taskContainer.appendChild(createCompleteButton);
       }  
 
-      taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(e.dueDate)}, Priority: ${e.priority}`;
+      taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(e.dueDate)}, Priority: ${e.priority}Project: ${e.projectName}`;
     
     });
 
@@ -84,7 +84,7 @@ function displayTask(task, customAttributeName, customAttributeValue){
         taskContainer.appendChild(createCompleteButton);
       }
             
-      taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(e.dueDate)}, Priority: ${e.priority}`;
+      taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(e.dueDate)}, Priority: ${e.priority}Project: ${e.projectName}`;
             
     });
 

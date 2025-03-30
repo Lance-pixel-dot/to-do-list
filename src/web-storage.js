@@ -44,6 +44,11 @@ function displayLocalStorage(){
             displayTask(getLocalStore);
         }
 
+            // const getLocalStore = JSON.parse(localStorage.getItem("userTask"));
+            // contentDiv.textContent = "";
+            // taskList.textContent = "";
+            // displayTask(getLocalStore);
+
     }
 
 }

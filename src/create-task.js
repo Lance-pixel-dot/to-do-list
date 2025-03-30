@@ -1,4 +1,4 @@
-import { Task } from ".";
+import { Task, Project } from ".";
 import { storeTask } from "./web-storage";
 
 const addTaskButton = document.querySelector('.add-task');
@@ -11,7 +11,9 @@ const taskDueDateInput = document.querySelector('.task-due-date');
 // const taskTimeInput = document.querySelector('.task-time');
 const taskPriorityInput = document.querySelector('#priority');
 // const taskRepeatInput = document.querySelector('#repeat');
-const dialog = document.querySelector('dialog');
+const dialog = document.querySelector('.add-new-task');
+const projectNameInput = document.querySelector('#project');
+// const project = document.querySelector('#project');
 
 addTaskButton.addEventListener('click', () => {
 
@@ -33,8 +35,9 @@ taskForm.addEventListener('submit', e => {
         // const taskTime = taskTimeInput.value;
         const taskPriority = taskPriorityInput.value;
         // const taskRepeat = taskRepeatInput.value;
+        const projectName = projectNameInput.value
 
-        const newTask = new Task(taskTitle, taskDescription, taskDueDate, taskPriority);
+        const newTask = new Task(taskTitle, taskDescription, taskDueDate, taskPriority, projectName);
 
         // console.log(taskPriority);
 
@@ -46,6 +49,7 @@ taskForm.addEventListener('submit', e => {
         // taskTimeInput.value = "";
         taskPriorityInput.value = "";
         // taskRepeatInput.value = "";
+        projectNameInput.value = "";
     }
     
 })

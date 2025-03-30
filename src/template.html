@@ -14,9 +14,11 @@
         <button class="upcoming-button">Upcoming</button>
         <button class="complete-button">Completed</button>
         <button class="overdue-button">Overdue</button>
-        <!-- <div class="projects-section">
-            
-        </div> -->
+        <div class="projects-section">
+            <h2>Projects</h2>
+            <button class="add-project">Add Project</button>
+            <div class="project-container"></div>
+        </div>
     </nav>
 
     <dialog class="add-new-task">
@@ -38,9 +40,22 @@
                 <input type="checkbox" id="repeat" name="repeat">
                 <label for="repeat">Repeat</label>
             </div> -->
+            <div class="projectDiv">
+                <label for="project">Priority</label>
+                <select id="project" name="project" required>
+                </select>
+            </div>
             <button type="submit" class="submit-task">Submit</button>
         </form>
         <button class="close-dialog">Cancel</button>
+    </dialog>
+
+    <dialog class="add-new-project">
+        <form class="project-form">
+            <input type="text" class="project-name" placeholder="Project Name" required>
+            <button type="submit" class="submit-project">Submit</button>
+        </form>
+        <button class="close-dialog-project">Cancel</button>
     </dialog>
 
     <div id="content"></div>
