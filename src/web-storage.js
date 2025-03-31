@@ -2,6 +2,7 @@ import { contentDiv, displayTask, taskHeaderName, taskList } from "./display-tas
 import { viewTaskToday } from "./today-task";
 import { viewUpcomingTask } from "./upcoming-task";
 import { viewOverdueTask } from "./overdue-task";
+import { displayTaskOnProject } from "./project-task";
 
 function storeTask(task){
 
@@ -23,6 +24,25 @@ function storeTask(task){
 
 }
 
+function storeProject(project){
+
+    const getLocalStore = JSON.parse(localStorage.getItem('userProject'));
+
+    if(getLocalStore != null){
+
+        getLocalStore.push(project);
+        localStorage.setItem("userProject", JSON.stringify(getLocalStore));
+
+    }else{
+
+        const projectArray = [];
+        projectArray.push(project);
+        localStorage.setItem("userProject", JSON.stringify(projectArray));
+
+    }
+
+}
+
 function displayLocalStorage(){
 
     if(localStorage.length > 0){
@@ -37,20 +57,17 @@ function displayLocalStorage(){
             displayTask(getLocalStore);
         }else if(taskHeaderName.textContent == 'Overdue'){
             viewOverdueTask();
-        }else{
+        }else if(taskHeaderName.textContent == 'All Tasks'){
             const getLocalStore = JSON.parse(localStorage.getItem("userTask"));
             contentDiv.textContent = "";
             taskList.textContent = "";
             displayTask(getLocalStore);
+        }else{
+            displayTaskOnProject(taskHeaderName.textContent);
         }
-
-            // const getLocalStore = JSON.parse(localStorage.getItem("userTask"));
-            // contentDiv.textContent = "";
-            // taskList.textContent = "";
-            // displayTask(getLocalStore);
 
     }
 
 }
 
-export { storeTask, displayLocalStorage };
+export { storeTask, displayLocalStorage, storeProject};

@@ -63,6 +63,7 @@ cancelButton.addEventListener('click', () => {
     // taskTimeInput.value = "";
     taskPriorityInput.value = "";
     // taskRepeatInput.value = "";
+    projectNameInput.value = "";
 });
 
-export { addTaskButton, submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput, dialog, taskForm };
+export { addTaskButton, submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput, projectNameInput, dialog, taskForm };

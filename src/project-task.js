@@ -2,8 +2,6 @@ import { displayTask, contentDiv, taskHeaderName, taskList } from "./display-tas
 
 function displayTaskOnProject(projectName){
 
-    console.log(projectName);
-
     taskHeaderName.textContent = projectName;
 
     const getLocalStore = JSON.parse(localStorage.getItem('userTask'));

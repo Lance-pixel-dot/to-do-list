@@ -1,6 +1,7 @@
 import { Project } from ".";
 import { overdueSpan } from "./overdue-task";
 import { displayTaskOnProject } from "./project-task";
+import { storeProject, displayLocalStorage } from "./web-storage";
 
 const projectContainer = document.querySelector(".project-container");
 const projectSelect = document.querySelector('#project');
@@ -9,6 +10,7 @@ const projectNameInput = document.querySelector('.project-name');
 const projectForm = document.querySelector('.project-form');
 const cancelButton = document.querySelector('.close-dialog-project');
 const dialog = document.querySelector('.add-new-project');
+
 
 cancelButton.addEventListener('click', () => {
     dialog.close();
@@ -26,6 +28,7 @@ projectForm.addEventListener('submit', e => {
     e.preventDefault();
 
     const newProject = new Project(projectNameInput.value);
+    storeProject(newProject);
     displayProject(newProject.name);
 
 })
@@ -44,13 +47,12 @@ function displayProject(projectName){
 
     projectContainer.appendChild(projectButton);
 
-    const getProjectButton = document.querySelectorAll('.project-button')
+    const getProjectButton = document.querySelectorAll('.project-button');
 
     getProjectButton.forEach(button => {
         button.addEventListener('click', (e) => {
             if(localStorage.length > 0){
                 const getProjectName = e.target.textContent;
-                console.log(e.target);
                 overdueSpan.textContent = "";
                 displayTaskOnProject(getProjectName);
             }
@@ -59,4 +61,5 @@ function displayProject(projectName){
     
 }
 
-export { displayProject, newProjectButton};
+
+export { displayProject, newProjectButton };

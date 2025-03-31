@@ -36,6 +36,12 @@ class Project {
 const defaultProject = new Project("My Project");
 displayProject(defaultProject.name);
 
+const getLocalStore = JSON.parse(localStorage.getItem('userProject'));
+
+getLocalStore.forEach(e => {
+    displayProject(e.name);
+})
+
 
 const todayTaskButton = document.querySelector('.today-button').addEventListener('click', () => {
     if(localStorage.length > 0){
@@ -90,13 +96,12 @@ export { Task, Project };
 //fix when local storage is empty. (can be improved with better features while it is empty)
 //make priorities work. (can be improved)
 //make projects work.
-    //put the header name of the project in the local storage so it doesn't duplicate whe creating new task
-    //make sure the projects are also stored in the local storage.
-    //update 'edit task' since projects is now implemented.
+    //make sure the projects are also stored in the local storage. (can be improved)
+    //make when you delete a project the tasks under it should be also deleted.
     //add some more properties on project like symbols or color. (if you have time)
 //make sections/sub projects under projects work. (if you can)
 //make time work.
-//make repeat work. (if you can)
+//make repeat work.
 
 //notes
 //every time a task is completed it will be in the new array for incase you want to re-use that task you will need to "push" it back at the end or last index of active userTask array therefore it will have a new date for that task to be completed.

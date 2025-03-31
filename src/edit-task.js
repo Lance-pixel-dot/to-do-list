@@ -1,8 +1,9 @@
-import { submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput, dialog, taskForm} from "./create-task";
+import { submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput, projectNameInput, dialog, taskForm} from "./create-task";
 import { contentDiv, displayTask, taskHeaderName, taskList } from "./display-task";
 import { viewTaskToday } from "./today-task";
 import { viewUpcomingTask } from "./upcoming-task";
 import { viewOverdueTask } from "./overdue-task";
+import { displayTaskOnProject } from "./project-task";
 
 function editTask(){
 
@@ -25,6 +26,7 @@ function editTask(){
     // taskTimeInput.value = getTask.time;
     taskPriorityInput.value = getTask.priority;
     // taskRepeatInput.value = getTask.repeat;
+    projectNameInput.value = getTask.projectName;
 
     dialog.showModal();
 
@@ -33,13 +35,13 @@ function editTask(){
         e.preventDefault();
 
         if(submitTaskButton.className == 'save-task'){
-            getTask.title = taskTitleInput.value
-            getTask.description = taskDescriptionInput.value
-            getTask.dueDate = taskDueDateInput.value
+            getTask.title = taskTitleInput.value;
+            getTask.description = taskDescriptionInput.value;
+            getTask.dueDate = taskDueDateInput.value;
             // getTask.time = taskTimeInput.value
-            getTask.priority = taskPriorityInput.value
+            getTask.priority = taskPriorityInput.value;
             // getTask.repeat = taskRepeatInput.value
-            // getTask.projectName = projectName
+            getTask.projectName = projectNameInput.value;
 
             getLocalStore.splice(index, 1, getTask);
 
@@ -54,8 +56,10 @@ function editTask(){
                 viewUpcomingTask();
             }else if(taskHeaderName.textContent == 'Overdue'){
                 viewOverdueTask();
-            }else{
+            }else if(taskHeaderName.textContent == 'All Tasks'){
                 displayTask(getLocalStore);
+            }else{
+                displayTaskOnProject(taskHeaderName.textContent);
             }
         }
     })
