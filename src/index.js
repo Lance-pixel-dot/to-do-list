@@ -8,6 +8,7 @@ import { displayCompleteTask } from "./complete-task";
 import { viewOverdueTask, overdueSpan } from "./overdue-task";
 import { displayProject } from "./setup-project";
 import { newProjectButton } from "./project-task";
+// import { getProjectDeleteButton } from "./remove-project";
 // import { taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput } from "./create-task";
 
 class Task {
@@ -99,9 +100,10 @@ export { Task, Project };
     //make sure the projects are also stored in the local storage. (can be improved)
     //make when you delete a project the tasks under it should be also deleted.
     //add some more properties on project like symbols or color. (if you have time)
+    //make remove projects also removes the tasks on the DOM once clicked and make sure the project buttons/section will also disappear and the screen will transition to 'all tasks'. 
 //make sections/sub projects under projects work. (if you can)
-//make time work.
-//make repeat work.
+//make notes work.
+//make checklist work.
 
 //notes
 //every time a task is completed it will be in the new array for incase you want to re-use that task you will need to "push" it back at the end or last index of active userTask array therefore it will have a new date for that task to be completed.

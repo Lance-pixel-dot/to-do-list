@@ -1,7 +1,8 @@
 import { Project } from ".";
 import { overdueSpan } from "./overdue-task";
 import { displayTaskOnProject } from "./project-task";
-import { storeProject, displayLocalStorage } from "./web-storage";
+import { storeProject } from "./web-storage";
+import { deleteProject } from "./remove-project";
 
 const projectContainer = document.querySelector(".project-container");
 const projectSelect = document.querySelector('#project');
@@ -35,6 +36,8 @@ projectForm.addEventListener('submit', e => {
 
 function displayProject(projectName){
 
+    const projectHolder = document.createElement('div');
+
     const projectOption = document.createElement('option');
     projectOption.setAttribute('value', projectName);
     projectOption.textContent = projectName;
@@ -45,7 +48,16 @@ function displayProject(projectName){
     projectButton.setAttribute('class', 'project-button');
     projectButton.textContent = projectName;
 
-    projectContainer.appendChild(projectButton);
+    projectContainer.appendChild(projectHolder);
+
+    projectHolder.appendChild(projectButton);
+
+    if(projectName != "My Project"){
+        const removeProjectButton = document.createElement('button');
+        removeProjectButton.setAttribute('class', 'project-delete');
+        removeProjectButton.textContent = "Remove Project";
+        projectHolder.appendChild(removeProjectButton);
+    }
 
     const getProjectButton = document.querySelectorAll('.project-button');
 
@@ -58,6 +70,20 @@ function displayProject(projectName){
             }
         })
     })
+
+    const getProjectDeleteButton = document.querySelectorAll('.project-delete');
+
+    getProjectDeleteButton.forEach(button => {
+    button.addEventListener('click', (e) => {
+        // if(localStorage.length > 0){
+        //     const getProjectName = e.target.textContent;
+        //     overdueSpan.textContent = "";
+        //     displayTaskOnProject(getProjectName);
+        // }
+        const sibling = e.target.previousSibling.textContent;
+        deleteProject(sibling);
+    })
+})
     
 }
 
