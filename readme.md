@@ -12,3 +12,4 @@ npm install --save-dev style-loader css-loader
 npm install --save-dev html-loader
 npm install --save-dev webpack-dev-server
 npm install --save-dev webpack-merge
+npm install date-fns --save

@@ -12,7 +12,6 @@ const projectForm = document.querySelector('.project-form');
 const cancelButton = document.querySelector('.close-dialog-project');
 const dialog = document.querySelector('.add-new-project');
 
-
 cancelButton.addEventListener('click', () => {
     dialog.close();
 
@@ -75,11 +74,6 @@ function displayProject(projectName){
 
     getProjectDeleteButton.forEach(button => {
     button.addEventListener('click', (e) => {
-        // if(localStorage.length > 0){
-        //     const getProjectName = e.target.textContent;
-        //     overdueSpan.textContent = "";
-        //     displayTaskOnProject(getProjectName);
-        // }
         const sibling = e.target.previousSibling.textContent;
         deleteProject(sibling);
     })
@@ -88,4 +82,4 @@ function displayProject(projectName){
 }
 
 
-export { displayProject, newProjectButton };
+export { displayProject, newProjectButton, projectSelect };

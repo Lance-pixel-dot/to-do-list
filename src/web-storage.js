@@ -6,9 +6,10 @@ import { displayTaskOnProject } from "./project-task";
 
 function storeTask(task){
 
-    if(localStorage.length != 0){
+    const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
 
-        const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
+    if(getLocalStore != null){
+
         getLocalStore.push(task);
         localStorage.setItem("userTask", JSON.stringify(getLocalStore));
         displayLocalStorage();
@@ -45,7 +46,9 @@ function storeProject(project){
 
 function displayLocalStorage(){
 
-    if(localStorage.length > 0){
+    const getLocalStore = JSON.parse(localStorage.getItem("userTask"));
+
+    if(getLocalStore != null){
 
         if(taskHeaderName.textContent == 'Today'){
             viewTaskToday();
@@ -58,7 +61,6 @@ function displayLocalStorage(){
         }else if(taskHeaderName.textContent == 'Overdue'){
             viewOverdueTask();
         }else if(taskHeaderName.textContent == 'All Tasks'){
-            const getLocalStore = JSON.parse(localStorage.getItem("userTask"));
             contentDiv.textContent = "";
             taskList.textContent = "";
             displayTask(getLocalStore);

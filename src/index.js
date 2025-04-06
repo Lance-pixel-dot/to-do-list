@@ -39,27 +39,31 @@ displayProject(defaultProject.name);
 
 const getLocalStore = JSON.parse(localStorage.getItem('userProject'));
 
-getLocalStore.forEach(e => {
-    displayProject(e.name);
-})
-
+if(getLocalStore != null){
+    getLocalStore.forEach(e => {
+        displayProject(e.name);
+    })
+}
 
 const todayTaskButton = document.querySelector('.today-button').addEventListener('click', () => {
-    if(localStorage.length > 0){
+    const getTasks = JSON.parse(localStorage.getItem("userTask"));
+    if(getTasks != null){
         overdueSpan.textContent = "";
         viewTaskToday();
     }
 })
 
 const upcomingTaskButton = document.querySelector('.upcoming-button').addEventListener('click', () => {
-    if(localStorage.length > 0){
+    const getTasks = JSON.parse(localStorage.getItem("userTask"));
+    if(getTasks != null){
         overdueSpan.textContent = "";
         viewUpcomingTask();
     }
 })
 
 const allTaskButton = document.querySelector('.all-task-button').addEventListener('click', () => {
-    if(localStorage.length > 0){
+    const getTasks = JSON.parse(localStorage.getItem("userTask"));
+    if(getTasks != null){
         overdueSpan.textContent = "";
         taskHeaderName.textContent = 'All Tasks';
         displayLocalStorage();
@@ -67,14 +71,16 @@ const allTaskButton = document.querySelector('.all-task-button').addEventListene
 })
 
 const completedTaskButton = document.querySelector('.complete-button').addEventListener('click', () => {
-    if(localStorage.length > 1){
+    const getCompletedTask = JSON.parse(localStorage.getItem("completedTask"));
+    if(getCompletedTask != null){
         overdueSpan.textContent = "";
         displayCompleteTask();
     }
 })
 
 const overdueButton = document.querySelector('.overdue-button').addEventListener('click', () => {
-    if(localStorage.length > 0){
+    const getTasks = JSON.parse(localStorage.getItem("userTask"));
+    if(getTasks != null){
         viewOverdueTask();
     }
 })
@@ -82,7 +88,7 @@ const overdueButton = document.querySelector('.overdue-button').addEventListener
 taskHeaderName.textContent = 'All Tasks';
 displayLocalStorage();
 
-export { Task, Project };
+export { Task, Project, defaultProject };
 
 //list of objectives:
 //use date-fns methods/functions to make conditions on date and time if the task is due or overdue. (can be improved)
@@ -98,12 +104,11 @@ export { Task, Project };
 //make priorities work. (can be improved)
 //make projects work.
     //make sure the projects are also stored in the local storage. (can be improved)
-    //make when you delete a project the tasks under it should be also deleted.
     //add some more properties on project like symbols or color. (if you have time)
-    //make remove projects also removes the tasks on the DOM once clicked and make sure the project buttons/section will also disappear and the screen will transition to 'all tasks'. 
 //make sections/sub projects under projects work. (if you can)
 //make notes work.
 //make checklist work.
+//make that you can only view task details when the task is clicked. Only display task title/name and dueDate on normal display
 
 //notes
 //every time a task is completed it will be in the new array for incase you want to re-use that task you will need to "push" it back at the end or last index of active userTask array therefore it will have a new date for that task to be completed.

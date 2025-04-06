@@ -15,11 +15,11 @@ function completeTask(){
         getTaskArray.push(getLocalStore[indexOfTask]);   
 
         if(index == indexOfTask){
+            const getLocalCompletedTask = JSON.parse(localStorage.getItem('completedTask'));
 
-            if(localStorage.length == 1){
+            if(getLocalCompletedTask == null){
                 localStorage.setItem("completedTask", JSON.stringify(getTaskArray));
             }else{
-                const getLocalCompletedTask = JSON.parse(localStorage.getItem('completedTask'));
                 getLocalCompletedTask.push(...getTaskArray);
                 localStorage.setItem("completedTask", JSON.stringify(getLocalCompletedTask));
             }
