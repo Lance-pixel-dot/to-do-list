@@ -3,6 +3,7 @@ import { deleteTask } from "./remove-task";
 import { editTask } from "./edit-task";
 import { completeTask } from "./complete-task";
 import { overdueSpan } from "./overdue-task";
+import { viewTask } from "./view-task";
 
 const contentDiv = document.querySelector('#content');
 const taskHeaderName = document.createElement('h2');
@@ -17,6 +18,7 @@ function displayTask(task, customAttributeName, customAttributeValue){
     taskContainer.setAttribute(customAttributeName, customAttributeValue);
 
     const taskDetails = document.createElement('p');
+    taskDetails.setAttribute('class', 'task-info');
 
     const createDeleteButton = document.createElement('button');
     createDeleteButton.textContent = "Remove task";
@@ -43,7 +45,7 @@ function displayTask(task, customAttributeName, customAttributeValue){
         taskContainer.appendChild(createCompleteButton);
       }  
 
-      taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(e.dueDate)}, Priority: ${e.priority}Project: ${e.projectName}`;
+      taskDetails.textContent = `Title: ${e.title}, Date: ${formatDate(e.dueDate)}, Priority: ${e.priority}`;
     
     });
 
@@ -60,6 +62,7 @@ function displayTask(task, customAttributeName, customAttributeValue){
       taskContainer.setAttribute(customAttributeName, customAttributeValue);
             
       const taskDetails = document.createElement('p');
+      taskDetails.setAttribute('class', 'task-info');
             
       const createDeleteButton = document.createElement('button');
       createDeleteButton.textContent = "Remove task";
@@ -84,11 +87,16 @@ function displayTask(task, customAttributeName, customAttributeValue){
         taskContainer.appendChild(createCompleteButton);
       }
             
-      taskDetails.textContent = `Title: ${e.title}, Description: ${e.description}, Date: ${formatDate(e.dueDate)}, Priority: ${e.priority}Project: ${e.projectName}`;
+      taskDetails.textContent = `Title: ${e.title}, Date: ${formatDate(e.dueDate)}, Priority: ${e.priority}`;
             
     });
 
   }
+
+  const selectTask = document.querySelectorAll('.task-info');
+  selectTask.forEach(task => {
+    task.addEventListener('click', viewTask);
+  })
 
 };
 

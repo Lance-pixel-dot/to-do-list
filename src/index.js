@@ -102,7 +102,8 @@ export { Task, Project, defaultProject };
 //make overdue tasks work. (can be improved)
 //fix when local storage is empty. (can be improved with better features while it is empty)
 //make priorities work. (can be improved)
-//make projects work.
+    //make change priority.
+//make projects work. (can be improved)
     //make sure the projects are also stored in the local storage. (can be improved)
     //add some more properties on project like symbols or color. (if you have time)
 //make sections/sub projects under projects work. (if you can)
