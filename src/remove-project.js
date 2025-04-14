@@ -14,7 +14,7 @@ function deleteProject(projectName){
 
     const getUserProject = JSON.parse(localStorage.getItem('userProject'));
 
-    contentDiv.textContent = "";
+    contentDiv.textContent = ""; 
     taskList.textContent = "";
     projectContainer.textContent = "";
     projectSelect.textContent = "";
@@ -60,6 +60,7 @@ function deleteProject(projectName){
     }else if(taskHeaderName.textContent == 'Overdue'){
         viewOverdueTask();
     }else if(taskHeaderName.textContent == 'All Tasks' && getLocalStore != null){
+        const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
         displayTask(getLocalStore);
     }else if(projectName != taskHeaderName.textContent){
         displayTaskOnProject(taskHeaderName.textContent);

@@ -34,8 +34,6 @@ function displayTask(task, customAttributeName, customAttributeValue){
 
     task.forEach(e => {
 
-      // const getDate = `${e.dueDate}`;
-
       taskList.appendChild(taskContainer)
       taskContainer.appendChild(taskDetails);
 
@@ -75,8 +73,6 @@ function displayTask(task, customAttributeName, customAttributeValue){
       const createCompleteButton = document.createElement('button');
       createCompleteButton.textContent = "Mark as complete";
       createCompleteButton.addEventListener('click', completeTask);
-            
-      // const getTimeAndDate = `${e.dueDate} ${e.time}`
 
       taskList.appendChild(taskContainer);
       taskContainer.appendChild(taskDetails);
