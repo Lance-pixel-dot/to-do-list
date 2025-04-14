@@ -2,6 +2,7 @@ const viewTaskTitle = document.querySelector('.view-task-title');
 const viewTaskDescription = document.querySelector('.view-task-description');
 const viewTaskDueDate = document.querySelector('.view-task-due-date');
 const viewPriority = document.querySelector('#view-priority');
+const viewNotes = document.querySelector('.view-task-notes');
 const dialog = document.querySelector('.view-task');
 const closeButton = document.querySelector('.close-dialog-view');
 
@@ -20,9 +21,8 @@ function viewTask(){
     viewTaskTitle.value = getTask.title;
     viewTaskDescription.value = getTask.description;
     viewTaskDueDate.value = getTask.dueDate;
-    // taskTimeInput.value = getTask.time;
     viewPriority.value = getTask.priority;
-    // taskRepeatInput.value = getTask.repeat;
+    viewNotes.value = getTask.notes;
     // projectNameInput.value = getTask.projectName;
 
     dialog.showModal();

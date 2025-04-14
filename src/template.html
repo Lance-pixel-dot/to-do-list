@@ -26,7 +26,6 @@
             <input type="text" class="task-title" placeholder="Title" required>
             <textarea class="task-description" placeholder="Description" required></textarea>
             <input type="date" class="task-due-date" placeholder="Due Date" required>
-            <!-- <input type="time" class="task-time" placeholder="time"> -->
             <div class="priority">
                 <label for="priority">Priority</label>
                 <select id="priority" name="priority" required>
@@ -36,15 +35,12 @@
                     <option value="priority 4">Priority 4</option>
                 </select>
             </div>
-            <!-- <div class="repeat">
-                <input type="checkbox" id="repeat" name="repeat">
-                <label for="repeat">Repeat</label>
-            </div> -->
             <div class="projectDiv">
                 <label for="project">Project</label>
                 <select id="project" name="project" required>
                 </select>
             </div>
+            <textarea class="task-notes" placeholder="Notes" ></textarea>
             <button type="submit" class="submit-task">Submit</button>
         </form>
         <button class="close-dialog">Cancel</button>
@@ -63,7 +59,6 @@
             <input type="text" class="view-task-title" placeholder="Title" readonly>
             <textarea class="view-task-description" placeholder="Description" readonly></textarea>
             <input type="date" class="view-task-due-date" placeholder="Due Date" readonly>
-            <!-- <input type="time" class="task-time" placeholder="time"> -->
             <div class="priority">
                 <label for="view-priority">Priority</label>
                 <select id="view-priority" name="view-priority" aria-readonly="false">
@@ -72,12 +67,8 @@
                     <option value="priority 3">Priority 3</option>
                     <option value="priority 4">Priority 4</option>
                 </select>
-                 <!-- <input type="text" readonly> -->
             </div>
-            <!-- <div class="repeat">
-                <input type="checkbox" id="repeat" name="repeat">
-                <label for="repeat">Repeat</label>
-            </div> -->
+            <textarea class="view-task-notes" placeholder="Notes" readonly></textarea>
             <!-- <div class="projectDiv">
                 <label for="project">Project</label>
                 <select id="project" name="project" required>

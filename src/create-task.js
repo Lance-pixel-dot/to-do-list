@@ -8,12 +8,10 @@ const taskForm = document.querySelector('.task-form');
 const taskTitleInput = document.querySelector('.task-title');
 const taskDescriptionInput = document.querySelector('.task-description');
 const taskDueDateInput = document.querySelector('.task-due-date');
-// const taskTimeInput = document.querySelector('.task-time');
 const taskPriorityInput = document.querySelector('#priority');
-// const taskRepeatInput = document.querySelector('#repeat');
 const dialog = document.querySelector('.add-new-task');
 const projectNameInput = document.querySelector('#project');
-// const project = document.querySelector('#project');
+const notesInput = document.querySelector('.task-notes');
 
 addTaskButton.addEventListener('click', () => {
 
@@ -32,12 +30,11 @@ taskForm.addEventListener('submit', e => {
         const taskTitle = taskTitleInput.value;
         const taskDescription = taskDescriptionInput.value;
         const taskDueDate = taskDueDateInput.value;
-        // const taskTime = taskTimeInput.value;
         const taskPriority = taskPriorityInput.value;
-        // const taskRepeat = taskRepeatInput.value;
         const projectName = projectNameInput.value
+        const notes = notesInput.value
 
-        const newTask = new Task(taskTitle, taskDescription, taskDueDate, taskPriority, projectName);
+        const newTask = new Task(taskTitle, taskDescription, taskDueDate, taskPriority, projectName, notes);
 
         // console.log(taskPriority);
 
@@ -46,10 +43,9 @@ taskForm.addEventListener('submit', e => {
         taskTitleInput.value = "";
         taskDescriptionInput.value = "";
         taskDueDateInput.value = "";
-        // taskTimeInput.value = "";
         taskPriorityInput.value = "";
-        // taskRepeatInput.value = "";
         projectNameInput.value = "";
+        notesInput.value = "";
     }
     
 })
@@ -60,10 +56,9 @@ cancelButton.addEventListener('click', () => {
     taskTitleInput.value = "";
     taskDescriptionInput.value = "";
     taskDueDateInput.value = "";
-    // taskTimeInput.value = "";
     taskPriorityInput.value = "";
-    // taskRepeatInput.value = "";
     projectNameInput.value = "";
+    notesInput.value = "";
 });
 
-export { addTaskButton, submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput, projectNameInput, dialog, taskForm };
+export { addTaskButton, submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput, projectNameInput, notesInput, dialog, taskForm };

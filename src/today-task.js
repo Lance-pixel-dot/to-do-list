@@ -20,8 +20,7 @@ function viewTaskToday(){
         const getTaskArray = [];
         getTaskArray.push(getLocalStore[index]);   
 
-        const dateResult = isSameDay(getDate, new Date());
-        // const hourLimit = differenceInHours(Date(), getTimeAndDate); 
+        const dateResult = isSameDay(getDate, new Date()); 
 
         if(dateResult != true){
             displayTask(getTaskArray, attributeName, attributeValue);

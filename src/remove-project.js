@@ -21,16 +21,19 @@ function deleteProject(projectName){
 
     const newArray = [];
 
-    getLocalStore.forEach(e => {
-        const getTaskProject = e.projectName;
+    if(getLocalStore != null){
 
-        const index = getLocalStore.indexOf(e);
+        getLocalStore.forEach(e => {
+            const getTaskProject = e.projectName;
 
-        if(getTaskProject != projectName){
-            newArray.push(getLocalStore[index]);
-        }
+            const index = getLocalStore.indexOf(e);
 
-    })
+            if(getTaskProject != projectName){
+                newArray.push(getLocalStore[index]);
+            }
+
+        })
+    }
 
     getUserProject.forEach(e => {
         const index = getUserProject.indexOf(e);
@@ -56,7 +59,7 @@ function deleteProject(projectName){
         viewUpcomingTask();
     }else if(taskHeaderName.textContent == 'Overdue'){
         viewOverdueTask();
-    }else if(taskHeaderName.textContent == 'All Tasks'){
+    }else if(taskHeaderName.textContent == 'All Tasks' && getLocalStore != null){
         displayTask(getLocalStore);
     }else if(projectName != taskHeaderName.textContent){
         displayTaskOnProject(taskHeaderName.textContent);
