@@ -11,7 +11,6 @@ const taskDueDateInput = document.querySelector('.task-due-date');
 const taskPriorityInput = document.querySelector('#priority');
 const dialog = document.querySelector('.add-new-task');
 const projectNameInput = document.querySelector('#project');
-const notesInput = document.querySelector('.task-notes');
 
 addTaskButton.addEventListener('click', () => {
 
@@ -32,11 +31,8 @@ taskForm.addEventListener('submit', e => {
         const taskDueDate = taskDueDateInput.value;
         const taskPriority = taskPriorityInput.value;
         const projectName = projectNameInput.value
-        const notes = notesInput.value
 
-        const newTask = new Task(taskTitle, taskDescription, taskDueDate, taskPriority, projectName, notes);
-
-        // console.log(taskPriority);
+        const newTask = new Task(taskTitle, taskDescription, taskDueDate, taskPriority, projectName);
 
         storeTask(newTask);
 
@@ -45,7 +41,7 @@ taskForm.addEventListener('submit', e => {
         taskDueDateInput.value = "";
         taskPriorityInput.value = "";
         projectNameInput.value = "";
-        notesInput.value = "";
+
     }
     
 })
@@ -58,7 +54,7 @@ cancelButton.addEventListener('click', () => {
     taskDueDateInput.value = "";
     taskPriorityInput.value = "";
     projectNameInput.value = "";
-    notesInput.value = "";
+
 });
 
-export { addTaskButton, submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput, projectNameInput, notesInput, dialog, taskForm };
+export { addTaskButton, submitTaskButton, cancelButton, taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput, projectNameInput, dialog, taskForm };

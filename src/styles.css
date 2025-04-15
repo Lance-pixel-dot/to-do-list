@@ -1,3 +1,6 @@
 .task-info:hover{
     cursor: pointer;
 }
+.view{
+    cursor: default;
+}

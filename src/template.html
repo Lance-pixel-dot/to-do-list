@@ -40,7 +40,6 @@
                 <select id="project" name="project" required>
                 </select>
             </div>
-            <textarea class="task-notes" placeholder="Notes" ></textarea>
             <button type="submit" class="submit-task">Submit</button>
         </form>
         <button class="close-dialog">Cancel</button>
@@ -56,26 +55,15 @@
 
     <dialog class="view-task">
         <form class="view-task-form">
-            <input type="text" class="view-task-title" placeholder="Title" readonly>
-            <textarea class="view-task-description" placeholder="Description" readonly></textarea>
-            <input type="date" class="view-task-due-date" placeholder="Due Date" readonly>
+            <input type="text" class="view-task-title view" placeholder="Title" readonly>
+            <textarea class="view-task-description view" placeholder="Description" readonly></textarea>
+            <input type="date" class="view-task-due-date view" placeholder="Due Date" readonly>
             <div class="priority">
-                <label for="view-priority">Priority</label>
-                <select id="view-priority" name="view-priority" aria-readonly="false">
-                    <option value="priority 1">Priority 1</option>
-                    <option value="priority 2">Priority 2</option>
-                    <option value="priority 3">Priority 3</option>
-                    <option value="priority 4">Priority 4</option>
-                </select>
+                <label for="view-priority" class="view">Priority</label>
+                <input type="text" id="view-priority" name="view-priority" class="view" readonly>
             </div>
-            <textarea class="view-task-notes" placeholder="Notes" readonly></textarea>
-            <!-- <div class="projectDiv">
-                <label for="project">Project</label>
-                <select id="project" name="project" required>
-                </select>
-            </div> -->
         </form>
-        <button class="close-dialog-view">Cancel</button>
+        <button class="close-dialog-view">Close</button>
     </dialog>
 
     <div id="content"></div>

@@ -8,18 +8,15 @@ import { displayCompleteTask } from "./complete-task";
 import { viewOverdueTask, overdueSpan } from "./overdue-task";
 import { displayProject } from "./setup-project";
 import { newProjectButton } from "./project-task";
-// import { getProjectDeleteButton } from "./remove-project";
-// import { taskTitleInput, taskDescriptionInput, taskDueDateInput, taskPriorityInput } from "./create-task";
 
 class Task {
 
-    constructor(title, description, dueDate, priority, projectName, notes){
+    constructor(title, description, dueDate, priority, projectName){
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
         this.projectName = projectName;
-        this.notes = notes;
     }
 
 }
@@ -103,9 +100,6 @@ export { Task, Project, defaultProject };
     //make change priority.
 //make projects work. (can be improved)
     //make sure the projects are also stored in the local storage. (can be improved)
-    //add some more properties on project like symbols or color. 
-//make notes work.
-//make checklist work.
 //make that you can only view task details when the task is clicked. Only display task title/name and dueDate on normal display (can be improved)
 
 //notes
