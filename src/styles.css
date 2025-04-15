@@ -1,6 +1,70 @@
-.task-info:hover{
+@font-face {
+    font-family: 'space_grotesklight';
+    src: url('./fonts/spacegrotesk-variablefont_wght-webfont.woff2') format('woff2'),
+         url('./fonts/spacegrotesk-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.task-info:hover, button{
     cursor: pointer;
+    background-color: transparent;
+    border: transparent;
+}
+nav button:hover{
+    background-color: antiquewhite;
+}
+button:hover, .task-info:hover{
+    text-decoration: underline;
+}
+button{
+    text-align: start;
 }
 .view{
     cursor: default;
+}
+body{
+    font-family: 'space_grotesklight', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+nav{
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid black;
+}
+.projects-section{
+    margin-top: 2rem;
+}
+.projects-section > div{
+    display: flex;
+}
+.projects-section > div > button{
+    background-color: transparent;
+    display: none;
+    text-align: end;
+}
+.projects-section > div:hover > button{
+    display: flex;
+}
+#content{
+    
+}
+#content > div{
+    height: 100%;
+}
+.task-container{
+    height: 10%;
+}
+.task-container button{
+    display: none;
+}
+.task-container:hover{
+    background-color: antiquewhite;
+}
+.task-container:hover button{
+    display: inline-block;
 }

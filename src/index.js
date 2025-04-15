@@ -1,4 +1,5 @@
 import "./styles.css";
+import "./reset.css";
 import { addTaskButton } from "./create-task";
 import { displayLocalStorage } from "./web-storage";
 import { viewTaskToday } from "./today-task";
