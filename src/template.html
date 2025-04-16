@@ -9,16 +9,16 @@
     
     <nav>
         <h1>To-do-list</h1>
-        <button class="add-task">Add new task</button>
+        <img src="svg/plus-circle.svg" alt="add-new-task-svg" class="add-task">
         <button class="all-task-button">All Tasks</button>
         <button class="today-button">Today</button>
         <button class="upcoming-button">Upcoming</button>
         <button class="complete-button">Completed</button>
         <button class="overdue-button">Overdue</button>
         <div class="projects-section">
-            <div>
+            <div class="add-new-project-button">
                 <h2>Projects</h2>
-                <button class="add-project">Add Project</button>
+                <img src="svg/plus-circle.svg" alt="add-new-project-svg" class="add-project">
             </div>
             <div class="project-container"></div>
         </div>
@@ -32,10 +32,10 @@
             <div class="priority">
                 <label for="priority">Priority</label>
                 <select id="priority" name="priority" required>
-                    <option value="priority 1">Priority 1</option>
-                    <option value="priority 2">Priority 2</option>
-                    <option value="priority 3">Priority 3</option>
-                    <option value="priority 4">Priority 4</option>
+                    <option value="priority 1">Priority 1 🟢</option>
+                    <option value="priority 2">Priority 2 🔵</option>
+                    <option value="priority 3">Priority 3 🟣</option>
+                    <option value="priority 4">Priority 4 🔴</option>
                 </select>
             </div>
             <div class="projectDiv">

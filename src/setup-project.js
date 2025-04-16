@@ -3,6 +3,7 @@ import { overdueSpan } from "./overdue-task";
 import { displayTaskOnProject } from "./project-task";
 import { storeProject } from "./web-storage";
 import { deleteProject } from "./remove-project";
+import svgOne from './svg/trash-can-outline.svg';
 
 const projectContainer = document.querySelector(".project-container");
 const projectSelect = document.querySelector('#project');
@@ -52,9 +53,9 @@ function displayProject(projectName){
     projectHolder.appendChild(projectButton);
 
     if(projectName != "My Project"){
-        const removeProjectButton = document.createElement('button');
+        const removeProjectButton = document.createElement('img');
         removeProjectButton.setAttribute('class', 'project-delete');
-        removeProjectButton.textContent = "Remove Project";
+        removeProjectButton.src = svgOne;
         projectHolder.appendChild(removeProjectButton);
     }
 

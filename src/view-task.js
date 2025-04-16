@@ -1,3 +1,5 @@
+import { taskHeaderName } from "./display-task";
+
 const viewTaskTitle = document.querySelector('.view-task-title');
 const viewTaskDescription = document.querySelector('.view-task-description');
 const viewTaskDueDate = document.querySelector('.view-task-due-date');
@@ -9,18 +11,27 @@ function viewTask(){
     
     const index = [...this.parentElement.parentElement.parentElement.children].indexOf(this.parentElement.parentElement);
 
-    console.log(index)
+    if(taskHeaderName.textContent == 'Completed Tasks'){
+        const getLocalStore = JSON.parse(localStorage.getItem('completedTask'));
+        const getTask = getLocalStore[index];
 
-    const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
+        viewTaskTitle.value = getTask.title;
+        viewTaskDescription.value = getTask.description;
+        viewTaskDueDate.value = getTask.dueDate;
+        viewPriority.value = getTask.priority;
+    
+        dialog.showModal();
+    }else{
+        const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
+        const getTask = getLocalStore[index];
 
-    const getTask = getLocalStore[index];
-
-    viewTaskTitle.value = getTask.title;
-    viewTaskDescription.value = getTask.description;
-    viewTaskDueDate.value = getTask.dueDate;
-    viewPriority.value = getTask.priority;
-
-    dialog.showModal();
+        viewTaskTitle.value = getTask.title;
+        viewTaskDescription.value = getTask.description;
+        viewTaskDueDate.value = getTask.dueDate;
+        viewPriority.value = getTask.priority;
+    
+        dialog.showModal();
+    }
 }
 
 closeButton.addEventListener('click', () => {

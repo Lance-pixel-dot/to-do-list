@@ -6,13 +6,17 @@
     font-style: normal;
 
 }
+/* html{
+    height: 100vh;
+} */
 
 body{
     font-family: 'space_grotesklight', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 100vh;
-    width: 100vw;
+    height: fit-content;
+    height: 100%;
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 5fr;
     background-color: #F0A202;
     color: #202C59;
 }
@@ -28,10 +32,13 @@ body{
     font-size: 100%;
 }
 nav button:hover{
-    background-color: antiquewhite;
+    background-color: #D95D39;
 }
 button:hover, .task-info:hover{
     text-decoration: underline;
+}
+.task-info:hover{
+    filter: brightness(0) saturate(100%) invert(55%) sepia(70%) saturate(1121%) hue-rotate(8deg) brightness(104%) contrast(98%);
 }
 button{
     text-align: start;
@@ -39,11 +46,28 @@ button{
 .view{
     cursor: default;
 }
+
 nav{
     display: flex;
     flex-direction: column;
     border-right: 1px solid #581F18;
+    width: 20vw;
+    height: 100vh;
+    padding: 5%;
 }
+nav > h1{
+    margin-bottom: 5%;
+}
+
+.add-task{
+    height: 7%;
+    align-self: flex-start;
+    cursor: pointer;
+}
+.add-task:hover{
+    filter: brightness(0) saturate(100%) invert(42%) sepia(62%) saturate(739%) hue-rotate(329deg) brightness(93%) contrast(90%);
+}
+
 .projects-section{
     margin-top: 2rem;
 }
@@ -55,49 +79,93 @@ nav{
     display: none;
     text-align: end;
 }
-.projects-section > div:hover > button{
+.add-new-project-button{
+    display: flex;
+    justify-content: space-between;
+}
+.add-new-project-button:hover img{
+    display: inline-flex;
+}
+.project-container{
+    display: flex;
+    flex-direction: column;
+}
+.project-container div:hover{
+    background-color: #D95D39;
+}
+.project-container div{
     display: flex;
 }
+.project-button{
+    width: 100%;
+}
+.add-project{
+    display: none;
+    width: 10%;
+    cursor: pointer;
+}
+.add-project:hover{
+    filter: brightness(0) saturate(100%) invert(42%) sepia(62%) saturate(739%) hue-rotate(329deg) brightness(93%) contrast(90%);
+}
+.project-container div:hover .project-delete{
+    display: inline-flex;
+}
+.project-delete{
+    width: 10%;
+    cursor: pointer;
+    display: none;
+}
+.project-delete:hover{
+    filter: brightness(0) saturate(100%) invert(55%) sepia(70%) saturate(1121%) hue-rotate(8deg) brightness(104%) contrast(98%);
+}
+
 #content{
-    margin: 3%;
+    padding: 3%;
 }
 #content > div{
     height: 90%;
-    width: 90%;
+    width: 70vw;
     display: flex;
     flex-direction: column;
+    gap: 2%;
 }
 #content > h2{
     margin-bottom: 2%;
 }
+
 .task-container{
-    height: 11vh;
-    width: 30vw;
+    height: 13vh;
     display: grid; 
     grid-template-columns: 50% 50%;
     grid-template-rows: 60% 40%;
+    border-radius: 10px;
+    padding: 10px;
 }
 .task-details-container{
     grid-row: 1/3;
 }
 .task-container:hover{
-    background-color: antiquewhite;
+    background-color: #D95D39;
 }
 .invisible-svg{
     display: none;
 }
-.invisible-svg img{
+.invisible-svg img:hover{
     cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(55%) sepia(70%) saturate(1121%) hue-rotate(8deg) brightness(104%) contrast(98%);
 }
 .check-mark{
-    height: 75%; 
+    height: 100%; 
     cursor: pointer;
     justify-self: end;
 }
 .task-container:hover .invisible-svg{
     display: flex;
     justify-content: end;
-    height: 70%;
+    height: 100%;
+}
+img{
+    filter: brightness(0) saturate(100%) invert(15%) sepia(12%) saturate(4196%) hue-rotate(194deg) brightness(100%) contrast(94%);
 }
 
 

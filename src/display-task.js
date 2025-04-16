@@ -61,7 +61,30 @@ function displayTask(task, customAttributeName, customAttributeValue){
         taskContainer.appendChild(createEditAndDeleteDiv);
       }  
 
-      taskDetails.textContent = `Title: ${e.title}, Date: ${formatDate(e.dueDate)}, Priority: ${e.priority}`;
+      const titleContainer = document.createElement('h1');
+      titleContainer.textContent = e.title;
+      const dateContainer = document.createElement('h2');
+      dateContainer.textContent = formatDate(e.dueDate);
+      const priorityContainer = document.createElement('span');
+
+      switch(e.priority){
+        case 'priority 1':
+          priorityContainer.textContent = '🟢';
+          break;
+        case 'priority 2':
+          priorityContainer.textContent = '🔵';
+          break;
+        case 'priority 3':
+          priorityContainer.textContent = '🟣';
+          break;
+        case 'priority 4':
+          priorityContainer.textContent = '🔴';
+          break;
+      }
+      
+      taskDetails.appendChild(titleContainer);
+      taskDetails.appendChild(dateContainer);
+      taskDetails.appendChild(priorityContainer);
     
     });
 
@@ -119,10 +142,26 @@ function displayTask(task, customAttributeName, customAttributeValue){
       titleContainer.textContent = e.title;
       const dateContainer = document.createElement('h2');
       dateContainer.textContent = formatDate(e.dueDate);
+      const priorityContainer = document.createElement('span');
+
+      switch(e.priority){
+        case 'priority 1':
+          priorityContainer.textContent = '🟢';
+          break;
+        case 'priority 2':
+          priorityContainer.textContent = '🔵';
+          break;
+        case 'priority 3':
+          priorityContainer.textContent = '🟣';
+          break;
+        case 'priority 4':
+          priorityContainer.textContent = '🔴';
+          break;
+      }
       
       taskDetails.appendChild(titleContainer);
       taskDetails.appendChild(dateContainer);
-      // taskDetails.textContent = `Title: ${e.title}, Date: ${formatDate(e.dueDate)}, Priority: ${e.priority}`;
+      taskDetails.appendChild(priorityContainer);
             
     });
 
