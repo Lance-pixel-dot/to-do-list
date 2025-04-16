@@ -7,7 +7,9 @@ const closeButton = document.querySelector('.close-dialog-view');
 
 function viewTask(){
     
-    const index = [...this.parentElement.parentElement.children].indexOf(this.parentElement);
+    const index = [...this.parentElement.parentElement.parentElement.children].indexOf(this.parentElement.parentElement);
+
+    console.log(index)
 
     const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
 

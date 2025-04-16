@@ -7,6 +7,7 @@ import { viewTask } from "./view-task";
 import svgOne from "./svg/pencil.svg";
 import svgTwo from './svg/trash-can-outline.svg';
 import svgThree from './svg/check-circle-outline.svg';
+import svgFour from './svg/check-circle.svg';
 
 const contentDiv = document.querySelector('#content');
 const taskHeaderName = document.createElement('h2');
@@ -39,6 +40,12 @@ function displayTask(task, customAttributeName, customAttributeValue){
     const createCompleteButton = document.createElement('img');
     createCompleteButton.src = svgThree;
     createCompleteButton.setAttribute('class', 'check-mark');
+    createCompleteButton.addEventListener('mouseover', () => {
+      createCompleteButton.src = svgFour;
+    })
+    createCompleteButton.addEventListener('mouseout', () => {
+      createCompleteButton.src = svgThree;
+    })
     createCompleteButton.addEventListener('click', completeTask);
 
     task.forEach(e => {
@@ -89,6 +96,12 @@ function displayTask(task, customAttributeName, customAttributeValue){
       const createCompleteButton = document.createElement('img');
       createCompleteButton.src = svgThree;
       createCompleteButton.setAttribute('class', 'check-mark');
+      createCompleteButton.addEventListener('mouseover', () => {
+        createCompleteButton.src = svgFour;
+      })
+      createCompleteButton.addEventListener('mouseout', () => {
+        createCompleteButton.src = svgThree;
+      })
       createCompleteButton.addEventListener('click', completeTask);
 
       createTaskDetailsDiv.appendChild(taskDetails);
@@ -101,8 +114,15 @@ function displayTask(task, customAttributeName, customAttributeValue){
         taskContainer.appendChild(createCompleteButton);
         taskContainer.appendChild(createEditAndDeleteDiv);
       }
-            
-      taskDetails.textContent = `Title: ${e.title}, Date: ${formatDate(e.dueDate)}, Priority: ${e.priority}`;
+
+      const titleContainer = document.createElement('h1');
+      titleContainer.textContent = e.title;
+      const dateContainer = document.createElement('h2');
+      dateContainer.textContent = formatDate(e.dueDate);
+      
+      taskDetails.appendChild(titleContainer);
+      taskDetails.appendChild(dateContainer);
+      // taskDetails.textContent = `Title: ${e.title}, Date: ${formatDate(e.dueDate)}, Priority: ${e.priority}`;
             
     });
 

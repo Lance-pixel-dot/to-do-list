@@ -2,7 +2,7 @@ import { taskList } from "./display-task";
 
 function deleteTask(){
     
-    const index = [...this.parentElement.parentElement.children].indexOf(this.parentElement) - 2;
+    const index = [...this.parentElement.parentElement.parentElement.children].indexOf(this.parentElement.parentElement);
 
     const getLocalStore = JSON.parse(localStorage.getItem('userTask'));
 
