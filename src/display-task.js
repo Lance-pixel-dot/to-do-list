@@ -66,6 +66,8 @@ function displayTask(task, customAttributeName, customAttributeValue){
       const dateContainer = document.createElement('h2');
       dateContainer.textContent = formatDate(e.dueDate);
       const priorityContainer = document.createElement('span');
+      const titleAndPriorityHolder = document.createElement('div');
+      titleAndPriorityHolder.setAttribute('class', 'title-priority');
 
       switch(e.priority){
         case 'priority 1':
@@ -82,9 +84,10 @@ function displayTask(task, customAttributeName, customAttributeValue){
           break;
       }
       
-      taskDetails.appendChild(titleContainer);
+      titleAndPriorityHolder.appendChild(priorityContainer);
+      titleAndPriorityHolder.appendChild(titleContainer);
+      taskDetails.appendChild(titleAndPriorityHolder);
       taskDetails.appendChild(dateContainer);
-      taskDetails.appendChild(priorityContainer);
     
     });
 
@@ -143,6 +146,8 @@ function displayTask(task, customAttributeName, customAttributeValue){
       const dateContainer = document.createElement('h2');
       dateContainer.textContent = formatDate(e.dueDate);
       const priorityContainer = document.createElement('span');
+      const titleAndPriorityHolder = document.createElement('div');
+      titleAndPriorityHolder.setAttribute('class', 'title-priority');
 
       switch(e.priority){
         case 'priority 1':
@@ -159,9 +164,10 @@ function displayTask(task, customAttributeName, customAttributeValue){
           break;
       }
       
-      taskDetails.appendChild(titleContainer);
+      titleAndPriorityHolder.appendChild(priorityContainer);
+      titleAndPriorityHolder.appendChild(titleContainer);
+      taskDetails.appendChild(titleAndPriorityHolder);
       taskDetails.appendChild(dateContainer);
-      taskDetails.appendChild(priorityContainer);
             
     });
 
